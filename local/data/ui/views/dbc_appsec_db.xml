@@ -1,0 +1,93 @@
+<form>
+  <label>[DBC] Application Security Events</label>
+  <description>This dashboard monitors the Application Security events from the DBC-Security appliance. When using along with DB Cyerbetch Splunk TA, use sourcetype="dbn:dbn6300:sqliEvents"</description>
+  <fieldset submitButton="true" autoRun="false">
+    <input type="dropdown" token="index1">
+      <label>Select Index</label>
+      <fieldForLabel>index</fieldForLabel>
+      <fieldForValue>index</fieldForValue>
+      <search>
+        <query>| eventcount summarize=false index=* | dedup index | top index</query>
+        <earliest>-24h@h</earliest>
+        <latest>now</latest>
+      </search>
+    </input>
+    <input type="dropdown" token="sourcetype1">
+      <label>Select Sourcetype</label>
+      <choice value="*">ALL</choice>
+      <choice value="dbn*">dbn*</choice>
+      <default>*</default>
+      <fieldForLabel>sourcetype</fieldForLabel>
+      <fieldForValue>sourcetype</fieldForValue>
+      <search>
+        <query>earliest=-1d index=* "dbn" | dedup sourcetype |sort  sourcetype</query>
+        <earliest>-24h@h</earliest>
+        <latest>now</latest>
+      </search>
+    </input>
+    <input type="dropdown" token="machine" searchWhenChanged="false">
+      <label>Select Machine</label>
+      <search>
+        <query>earliest=-4d (index=*) "dbfw*" AND system_identifier=* | fields system_identifier | top system_identifier limit=20 | SORT system_identifier</query>
+        <earliest>-4d</earliest>
+        <latest>now</latest>
+      </search>
+      <fieldForLabel>system_identifier</fieldForLabel>
+      <fieldForValue>system_identifier</fieldForValue>
+      <choice value="*">ALL</choice>
+      <default>*</default>
+      <initialValue>*</initialValue>
+    </input>
+    <input type="time" token="field1">
+      <label></label>
+      <default>
+        <earliest>-24h@h</earliest>
+        <latest>now</latest>
+      </default>
+    </input>
+  </fieldset>
+  <row>
+    <panel>
+      <table>
+        <title>[$machine$] - Application Security Events</title>
+        <search>
+          <query>index="$index1$" sourcetype="$sourcetype1$" system_identifier=$machine$  "|distinct_event|" |
+eval cs1=system_identifier |
+<!-- lookup dbfw_owners cs1 OUTPUT owner as owner  | -->
+rename
+destinationServiceName AS database,
+externalId AS event_id,
+confidence AS confidence,
+score AS score,
+dst AS dest_ip,
+dpt AS dest_port,
+src AS source_ip,
+spt AS source_port,
+statement_identifier AS sql_id |
+eval start=if(start &gt; 1000000000000000, round(start/1000,0), start) |
+eval event_time=if(start &gt; 1000000000000000,strftime(start/1000000,"%+"),strftime(start/1000,"%+")) |
+table system_identifier
+database confidence score
+event_id sql_id start event_time
+dest_ip dest_port source_ip source_port</query>
+          <earliest>$field1.earliest$</earliest>
+          <latest>$field1.latest$</latest>
+          <sampleRatio>1</sampleRatio>
+          <refresh>5m</refresh>
+          <refreshType>delay</refreshType>
+        </search>
+        <option name="count">50</option>
+        <option name="dataOverlayMode">none</option>
+        <option name="drilldown">cell</option>
+        <option name="percentagesRow">false</option>
+        <option name="rowNumbers">true</option>
+        <option name="totalsRow">false</option>
+        <option name="wrap">true</option>
+        <drilldown>
+          <link target="_blank">https://127.0.0.1:8501/api/v2/appsec/events/$click.value2$/signed</link>
+          <!-- <link target='_blank'>https://127.0.0.1:8501/signedEvent/$click.value2$/signed_$click.value2$.html</link> -->
+        </drilldown>
+      </table>
+    </panel>
+  </row>
+</form>
