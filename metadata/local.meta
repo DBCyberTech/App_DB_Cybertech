@@ -17,3 +17,7 @@ modtime = 1526917712.605315500
 [views/dbc_health_db]
 version = 7.1.0
 modtime = 1526918713.030281500
+
+[app/install/install_source_checksum]
+version = 7.1.0
+modtime = 1527013238.148664700
