@@ -57,7 +57,7 @@
       <title>[$machine$] xcap_X01 Rate/Second over time (X01 = Number of packets received by engine on all capture sources)</title>
       <chart>
         <search>
-          <query>index=$index1$ sourcetype="$sourcetype1$" cs1="$machine$" AND "11|cnt"
+          <query>index=$index1$ sourcetype="$sourcetype1$" cs1="$machine$" cef_ruleid=11 cef_rulename=cnt
 | eval X01=replace(xcap_X01,",","")
 | reverse | delta X01 as d_X01
 | timechart span=$span1$  per_second(d_X01)</query>
@@ -99,7 +99,7 @@
       <title>[$machine$] xcap_X13 Rate/Second over time (X13 = Number of ethernet packets received by all enabled capture sources)</title>
       <chart>
         <search>
-          <query>index=$index1$  sourcetype="$sourcetype1$" cs1="$machine$" AND "11|cnt"
+          <query>index=$index1$  sourcetype="$sourcetype1$" cs1="$machine$" cef_ruleid=11 cef_rulename=cnt
 | eval X13=replace(xcap_X13,",","")
 | reverse | delta X13 as d_X13
 | timechart span=$span1$  per_second(d_X13)</query>
@@ -141,7 +141,7 @@
       <title>[$machine$] xcap_X12 Rate/Second over time (X12 = Packets dropped in the engine due to flow control or memory management pressure)</title>
       <chart>
         <search>
-          <query>index=$index1$ sourcetype="$sourcetype1$" cs1="$machine$" AND "11|cnt"
+          <query>index=$index1$ sourcetype="$sourcetype1$" cs1="$machine$" cef_ruleid=11 cef_rulename=cnt
 | eval X12=replace(xcap_X12,",","")
 | reverse | delta X12 as d_X12
 | timechart span=$span1$  per_second(d_X12)</query>
@@ -183,7 +183,7 @@
       <title>[$machine$] xcap_X33 Rate/Second over time (X33 = Packets received by kernel)</title>
       <chart>
         <search>
-          <query>index=$index1$  sourcetype="$sourcetype1$" cs1="$machine$" AND "11|cnt"
+          <query>index=$index1$  sourcetype="$sourcetype1$" cs1="$machine$" cef_ruleid=11 cef_rulename=cnt
 | eval X33=replace(xcap_X33,",","")
 | reverse | delta X33 as d_X33
 | timechart span=$span1$  per_second(d_X33)</query>
@@ -225,7 +225,7 @@
       <title>[$machine$] xeng_X30 Rate/Second over time (X30 = Number of feed complete events (DB operation executions))</title>
       <chart>
         <search>
-          <query>index=$index1$  sourcetype="$sourcetype1$" cs1="$machine$" AND "11|cnt"
+          <query>index=$index1$  sourcetype="$sourcetype1$" cs1="$machine$" cef_ruleid=11 cef_rulename=cnt
 | eval X30=replace(xeng_X30,",","")
 | reverse | delta X30 as d_X30
 | timechart span=$span1$  per_second(d_X30)</query>
@@ -267,7 +267,7 @@
       <title>[$machine$] xpro_X22 base value (X22 = Extant Oracle connections)</title>
       <chart>
         <search>
-          <query>index=$index1$ sourcetype="$sourcetype1$" cs1="$machine$" AND "11|cnt"
+          <query>index=$index1$ sourcetype="$sourcetype1$" cs1="$machine$" cef_ruleid=11 cef_rulename=cnt
 | eval X22=replace(xpro_X22,",","")
 | timechart span=$span1$  max(X22)</query>
           <earliest>$time1.earliest$</earliest>
@@ -308,7 +308,7 @@
       <title>[$machine$] xpro_X16 base value (X16 = Extant SQL server connections)</title>
       <chart>
         <search>
-          <query>index=$index1$  sourcetype="$sourcetype1$" cs1="$machine$" AND "11|cnt"
+          <query>index=$index1$  sourcetype="$sourcetype1$" cs1="$machine$" cef_ruleid=11 cef_rulename=cnt
 | eval X16=replace(xpro_X16,",","")
 | timechart span=$span1$  max(X16)</query>
           <earliest>$time1.earliest$</earliest>
@@ -349,7 +349,7 @@
       <title>[$machine$] xpro_X06 base value (X06 = Extant Sybase connections)</title>
       <chart>
         <search>
-          <query>index=$index1$ sourcetype="$sourcetype1$" cs1="$machine$" AND "11|cnt"
+          <query>index=$index1$ sourcetype="$sourcetype1$" cs1="$machine$" cef_ruleid=11 cef_rulename=cnt
 | eval X06=replace(xpro_X06,",","")
 | timechart span=$span1$  max(X06)</query>
           <earliest>$time1.earliest$</earliest>
@@ -390,7 +390,7 @@
       <title>[$machine$] xpro_X34 base value (X34 = Number of extant unidirectional connections)</title>
       <chart>
         <search>
-          <query>index=$index1$ sourcetype="$sourcetype1$" cs1="$machine$" AND "11|cnt"
+          <query>index=$index1$ sourcetype="$sourcetype1$" cs1="$machine$" AND cef_ruleid=11 cef_rulename=cnt
 | eval X34=replace(xpro_X34,",","")
 | timechart span=$span1$  max(X34)</query>
           <earliest>$time1.earliest$</earliest>
@@ -431,7 +431,7 @@
       <title>[$machine$] xpro_X08 base value (X08 = Extant Connections)</title>
       <chart>
         <search>
-          <query>index=$index1$ sourcetype="$sourcetype1$" cs1="$machine$" AND "11|cnt"
+          <query>index=$index1$ sourcetype="$sourcetype1$" cs1="$machine$" cef_ruleid=11 cef_rulename=cnt
 | eval X08=replace(xpro_X08,",","")
 | timechart span=$span1$  max(X08)</query>
           <earliest>$time1.earliest$</earliest>
@@ -472,7 +472,7 @@
       <title>[$machine$] xpro_X18 Rate/Second over time (X18 = SQL Server records seen (requests and responses))</title>
       <chart>
         <search>
-          <query>index=$index1$  sourcetype="$sourcetype1$" cs1="$machine$" AND "11|cnt"
+          <query>index=$index1$  sourcetype="$sourcetype1$" cs1="$machine$" cef_ruleid=11 cef_rulename=cnt
 | eval X18=replace(xpro_X18,",","")
 | reverse | delta X18 as d_X18
 | timechart span=$span1$  per_second(d_X18)</query>
@@ -514,7 +514,7 @@
       <title>[$machine$] xpro_X25 Rate/Second (X25 = Oracle request messages)</title>
       <chart>
         <search>
-          <query>index=$index1$ sourcetype="$sourcetype1$" cs1="$machine$" AND "11|cnt"
+          <query>index=$index1$ sourcetype="$sourcetype1$" cs1="$machine$" cef_ruleid=11 cef_rulename=cnt
 | eval X25=replace(xpro_X25,",","")
 | reverse | delta X25 as d_X25
 | timechart span=$span1$  per_second(d_X25)</query>
@@ -556,7 +556,7 @@
       <title>[$machine$] xcap_X04 in %  (X04 = Fraction of packets received and processed post BPF Filter %)</title>
       <chart>
         <search>
-          <query>index=$index1$ sourcetype="$sourcetype1$" cs1="$machine$" AND "11|cnt|"
+          <query>index=$index1$ sourcetype="$sourcetype1$" cs1="$machine$" cef_ruleid=11 cef_rulename=cnt
 | eval X04=xcap_X04*100
 |   timechart span=$span1$ max(X04)</query>
           <earliest>$time1.earliest$</earliest>
@@ -573,7 +573,7 @@
       <title>[$machine$] xpro_X23 in %  (X23 = Ratio of Oracle requests decoded vs all Oracle request%)</title>
       <chart>
         <search>
-          <query>index=$index1$ sourcetype="$sourcetype1$" cs1="$machine$" AND "11|cnt|"
+          <query>index=$index1$ sourcetype="$sourcetype1$" cs1="$machine$" cef_ruleid=11 cef_rulename=cnt
 | eval X23=xpro_X23*100
 |   timechart span=$span1$ max(X23)</query>
           <earliest>$time1.earliest$</earliest>
@@ -590,7 +590,7 @@
       <title>[$machine$] xpro_X24 in %  (X24 = Ratio of Oracle requests decoded vs all Oracle request where no gap present %)</title>
       <chart>
         <search>
-          <query>index=$index1$ sourcetype="$sourcetype1$" cs1="$machine$" AND "11|cnt|"
+          <query>index=$index1$ sourcetype="$sourcetype1$" cs1="$machine$" cef_ruleid=11 cef_rulename=cnt
 | eval X24=xpro_X24*100
 |   timechart span=$span1$ max(X24)</query>
           <earliest>$time1.earliest$</earliest>
@@ -607,7 +607,7 @@
       <title>[$machine$] xpro_X19 in %  (X19 = Ratio of good SQL server record decodes vs all protocols records handled %)</title>
       <chart>
         <search>
-          <query>index=$index1$ sourcetype="$sourcetype1$" cs1="$machine$" AND "11|cnt|"
+          <query>index=$index1$ sourcetype="$sourcetype1$" cs1="$machine$" cef_ruleid=11 cef_rulename=cnt
 | eval X19=xpro_X19*100
 |   timechart span=$span1$ max(X19)</query>
           <earliest>$time1.earliest$</earliest>
@@ -624,7 +624,7 @@
       <title>[$machine$] xpro_X05 in %  (X05 = Ratio of good Sybase protocol record decodes vs all protocols records handled %)</title>
       <chart>
         <search>
-          <query>index=$index1$ sourcetype="$sourcetype1$" cs1="$machine$" AND "11|cnt|"
+          <query>index=$index1$ sourcetype="$sourcetype1$" cs1="$machine$" cef_ruleid=11 cef_rulename=cnt
 | eval X05=xpro_X05*100
 |   timechart span=$span1$ max(X05)</query>
           <earliest>$time1.earliest$</earliest>
@@ -641,7 +641,9 @@
       <title>[$machine$] 5 Minutes CPU Load Average</title>
       <chart>
         <search>
-          <query>index=$index1$ sourcetype="$sourcetype1$" cs1="$machine$" AND "12|sys" | rename os_loadavg_1 as 5min_cpu_load | timechart span=$span1$ max(5min_cpu_load)</query>
+          <query>index=$index1$ sourcetype="$sourcetype1$" cs1="$machine$" cef_ruleid=12 cef_rulename=sys 
+| rename os_loadavg_1 as 5min_cpu_load 
+| timechart span=$span1$ max(5min_cpu_load)</query>
           <earliest>$time1.earliest$</earliest>
           <latest>$time1.latest$</latest>
           <sampleRatio>1</sampleRatio>
@@ -679,7 +681,11 @@
       <title>[$machine$] % Memory Used</title>
       <chart>
         <search>
-          <query>index=$index1$ sourcetype="$sourcetype1$" cs1="$machine$" AND "12|sys"   | eval totalmem=tonumber(replace(os_totalmem,",","")) | eval freemem=tonumber(replace(os_freemem,",","")) | eval memUsed = ((totalmem-freemem)/totalmem)*100 | timechart span=$span1$ max(memUsed)</query>
+          <query>index=$index1$ sourcetype="$sourcetype1$" cs1="$machine$" cef_ruleid=12 cef_rulename=sys 
+| eval totalmem=tonumber(replace(os_totalmem,",","")) 
+| eval freemem=tonumber(replace(os_freemem,",","")) 
+| eval memUsed = ((totalmem-freemem)/totalmem)*100 
+| timechart span=$span1$ max(memUsed)</query>
           <earliest>$time1.earliest$</earliest>
           <latest>$time1.latest$</latest>
           <sampleRatio>1</sampleRatio>
@@ -717,7 +723,11 @@
       <title>[$machine$] % Disk Usage for Root</title>
       <chart>
         <search>
-          <query>index=$index1$ sourcetype="$sourcetype1$" cs1="$machine$" AND "13|slowsys"  | eval total_root=tonumber(replace(disk_root_total,",","")) | eval root_avail=tonumber(replace(disk_root_avail,",","")) | eval disk_used_root=((total_root-root_avail)/total_root)*100 | timechart span=$span1$ max(disk_used_root)</query>
+          <query>index=$index1$ sourcetype="$sourcetype1$" cs1="$machine$" cef_ruleid=13 cef_rulename=slowsys 
+| eval total_root=tonumber(replace(disk_root_total,",","")) 
+| eval root_avail=tonumber(replace(disk_root_avail,",","")) 
+| eval disk_used_root=((total_root-root_avail)/total_root)*100 
+| timechart span=$span1$ max(disk_used_root)</query>
           <earliest>$time1.earliest$</earliest>
           <latest>$time1.latest$</latest>
           <sampleRatio>1</sampleRatio>
@@ -755,7 +765,7 @@
       <title>[$machine$] % Disk Usage for B Partition</title>
       <chart>
         <search>
-          <query>index=$index1$ sourcetype="$sourcetype1$" (cs1="$machine$" OR system_identifier="$machine$") AND "13|slowsys"
+          <query>index=$index1$ sourcetype="$sourcetype1$" (cs1="$machine$" OR system_identifier="$machine$") cef_ruleid=13 cef_rulename=slowsys
 | eval total_b=tonumber(replace(disk_b_total,",",""))
 | eval b_avail=tonumber(replace(disk_b_avail,",",""))
 | eval disk_used_b=((total_b-b_avail)/total_b)*100
@@ -797,7 +807,11 @@
       <title>[$machine$] Engine Start Events</title>
       <table>
         <search>
-          <query>index=$index1$ sourcetype="$sourcetype1$"  "$machine$" AND "|engine_start|" |  rename cs1 as mac_address, _time as restart_time |  eval restart_time = strftime(restart_time,"%Y-%m-%d %H:%M:%S") | SORT restart_time desc | table restart_time</query>
+          <query>index=$index1$ sourcetype="$sourcetype1$" "$machine$" cef_rulename=engine_start 
+| rename _time as restart_time 
+| eval restart_time = strftime(restart_time,"%Y-%m-%d %H:%M:%S") 
+| SORT restart_time desc 
+| table restart_time</query>
           <earliest>$time1.earliest$</earliest>
           <latest>$time1.latest$</latest>
         </search>

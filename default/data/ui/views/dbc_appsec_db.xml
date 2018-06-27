@@ -51,19 +51,7 @@
       <table>
         <title>[$machine$] - Application Security Events</title>
         <search>
-          <query>index="$index1$" sourcetype="$sourcetype1$" system_identifier=$machine$  "|distinct_event|" |
-eval cs1=system_identifier |
-<!-- lookup dbfw_owners cs1 OUTPUT owner as owner  | -->
-rename
-destinationServiceName AS database,
-externalId AS event_id,
-confidence AS confidence,
-score AS score,
-dst AS dest_ip,
-dpt AS dest_port,
-src AS source_ip,
-spt AS source_port,
-statement_identifier AS sql_id |
+          <query>index="$index1$" sourcetype="$sourcetype1$" system_identifier=$machine$  cef_rulename=distinct_event |
 eval start=if(start &gt; 1000000000000000, round(start/1000,0), start) |
 eval event_time=if(start &gt; 1000000000000000,strftime(start/1000000,"%+"),strftime(start/1000,"%+")) |
 table system_identifier

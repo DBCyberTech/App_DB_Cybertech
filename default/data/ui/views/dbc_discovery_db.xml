@@ -62,7 +62,7 @@ fields system_identifier | top system_identifier limit=50 | SORT system_identifi
       <chart>
         <title>[$machine$] New Conversation Identified</title>
         <search>
-          <query>index=$index1$ sourcetype="$sourcetype1$" system_identifier=$machine$ AND "tally_new_ipseity" | timechart count by system_identifier</query>
+          <query>index=$index1$ sourcetype="$sourcetype1$" system_identifier=$machine$ cef_rulename=tally_new_ipseity | timechart count by system_identifier</query>
           <earliest>$time1.earliest$</earliest>
           <latest>$time1.latest$</latest>
           <refresh>10m</refresh>
@@ -83,7 +83,7 @@ fields system_identifier | top system_identifier limit=50 | SORT system_identifi
       <chart>
         <title>[$machine$] New Host Identified</title>
         <search>
-          <query>index=$index1$ sourcetype="$sourcetype1$" system_identifier=$machine$ AND "mds_new_host" | timechart count by system_identifier</query>
+          <query>index=$index1$ sourcetype="$sourcetype1$" system_identifier=$machine$ cef_rulename=mds_new_host | timechart count by system_identifier</query>
           <earliest>$time1.earliest$</earliest>
           <latest>$time1.latest$</latest>
           <refresh>10m</refresh>
@@ -97,7 +97,7 @@ fields system_identifier | top system_identifier limit=50 | SORT system_identifi
       <chart>
         <title>[$machine$] New Users Identified</title>
         <search>
-          <query>index=$index1$ sourcetype="$sourcetype1$" system_identifier=$machine$ AND "mds_new_user" | timechart count by system_identifier</query>
+          <query>index=$index1$ sourcetype="$sourcetype1$" system_identifier=$machine$ cef_rulename=mds_new_user | timechart count by system_identifier</query>
           <earliest>$time1.earliest$</earliest>
           <latest>$time1.latest$</latest>
           <refresh>10m</refresh>
@@ -113,7 +113,7 @@ fields system_identifier | top system_identifier limit=50 | SORT system_identifi
       <table>
         <title>[$machine$] New Database Service Identified Table</title>
         <search>
-          <query>index=$index1$ sourcetype="$sourcetype1$" system_identifier=$machine$ AND "mds_new_service" | table _time system_identifier service_name service_name_type dialect</query>
+          <query>index=$index1$ sourcetype="$sourcetype1$" system_identifier=$machine$ cef_rulename=mds_new_service | table _time system_identifier service_name service_name_type dialect</query>
           <earliest>$time1.earliest$</earliest>
           <latest>$time1.latest$</latest>
           <sampleRatio>1</sampleRatio>
@@ -133,7 +133,7 @@ fields system_identifier | top system_identifier limit=50 | SORT system_identifi
       <table>
         <title>[$machine$] New Conversation Identified</title>
         <search>
-          <query>index=$index1$ sourcetype="$sourcetype1$" system_identifier=$machine$ AND "tally_new_ipseity" | table _time system_identifier client_addr server_addr server_port</query>
+          <query>index=$index1$ sourcetype="$sourcetype1$" system_identifier=$machine$ cef_rulename=tally_new_ipseity | table _time system_identifier client_addr server_addr server_port</query>
           <earliest>$time1.earliest$</earliest>
           <latest>$time1.latest$</latest>
           <sampleRatio>1</sampleRatio>
@@ -155,7 +155,7 @@ fields system_identifier | top system_identifier limit=50 | SORT system_identifi
       <table>
         <title>[$machine$] New Host Identified</title>
         <search>
-          <query>index=$index1$ sourcetype="$sourcetype1$" system_identifier=$machine$ AND "mds_new_host" | table _time system_identifier addr</query>
+          <query>index=$index1$ sourcetype="$sourcetype1$" system_identifier=$machine$ cef_rulename=mds_new_host | table _time system_identifier addr</query>
           <earliest>$time1.earliest$</earliest>
           <latest>$time1.latest$</latest>
           <sampleRatio>1</sampleRatio>
@@ -175,7 +175,7 @@ fields system_identifier | top system_identifier limit=50 | SORT system_identifi
       <table>
         <title>[$machine$] New Users Identified</title>
         <search>
-          <query>index=$index1$ sourcetype="$sourcetype1$" system_identifier=$machine$ AND "mds_new_user" | table _time system_identifier user_name default_schema</query>
+          <query>index=$index1$ sourcetype="$sourcetype1$" system_identifier=$machine$ cef_rulename=mds_new_user | table _time system_identifier user_name default_schema</query>
           <earliest>$time1.earliest$</earliest>
           <latest>$time1.latest$</latest>
           <sampleRatio>1</sampleRatio>
