@@ -21,6 +21,7 @@ Splunk Version  App Version   DBN Version
 Splunk 6.5.2    1.0.0         2.2.14
 Splunk 6.6.1    2.0.0         3.0.0
 Splunk 7.0.0    2.0.0         4.2.4
+Splunk 7.1.0    2.1.1         4.2.4
 =============== ============= ============
 
 
@@ -31,7 +32,7 @@ This TA is avalible on SplunkBase. Or you can clone this github repo into your `
 
 **Splunkbase:**::
 
-  https://splunkbase.splunk.com/app/3587/
+  https://splunkbase.splunk.com/app/4065/
 
 **Clone:**::
 
