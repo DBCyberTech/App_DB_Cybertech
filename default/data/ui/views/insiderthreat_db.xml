@@ -1,8 +1,18 @@
 <form>
-  <label>[DBC] Insider Threat Events Dashboard</label>
-  <description>This dashboard monitors the Insider Threat events from the DBC-Security appliance.</description>
-  <!--
- <row>
+  <label>Insider Threat Events Dashboard</label>
+  <row id="tooltip_row">
+    <panel>
+      <html>
+      <div id="tooltip_title">Application Security Events</div>
+      <div id="tooltip_txt">
+        <h4>Overview</h4>
+        <p>The Application Security Events Dashboard monitors for events from databases in "protection mode." New  SQL statements events that contains probable application security (like SQL injection) will appear here.</p>
+        <p style="float: right; text-weight: bold;"><a target="_blank" href="https://app-db-cybertech.readthedocs.io/en/latest/dashboards.html#application-security-events">More...</a></p>
+      </div>
+    </html>
+    </panel>
+  </row>
+  <!-- <row>
     <panel>
       <table>
         <title>Serial Numbers to Owners Table</title>

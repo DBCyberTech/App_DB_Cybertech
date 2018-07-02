@@ -1,6 +1,17 @@
-<form>
-  <label>[DBC] Application Security Events</label>
-  <description>This dashboard monitors the Application Security events from the DBC-Security appliance. When using along with DB Cyerbetch Splunk TA, use sourcetype="dbn:dbn6300:sqliEvents"</description>
+<form stylesheet="tooltip.css" script="tooltip.js">
+  <label>Application Security Events</label>
+  <row id="tooltip_row">
+    <panel>
+      <html>
+      <div id="tooltip_title">Application Security Events</div>
+      <div id="tooltip_txt">
+        <h4>Overview</h4>
+        <p>The Application Security Events Dashboard monitors for events from databases in "protection mode." New  SQL statements events that contains probable application security (like SQL injection) will appear here.</p>
+        <p style="float: right; text-weight: bold;"><a target="_blank" href="https://app-db-cybertech.readthedocs.io/en/latest/dashboards.html#application-security-events">More...</a></p>
+      </div>
+    </html>
+    </panel>
+  </row>
   <fieldset submitButton="true" autoRun="false">
     <input type="dropdown" token="index1">
       <label>Select Index</label>
@@ -51,13 +62,10 @@
       <table>
         <title>[$machine$] - Application Security Events</title>
         <search>
-          <query>index="$index1$" sourcetype="$sourcetype1$" system_identifier=$machine$  cef_rulename=distinct_event |
-eval start=if(start &gt; 1000000000000000, round(start/1000,0), start) |
-eval event_time=if(start &gt; 1000000000000000,strftime(start/1000000,"%+"),strftime(start/1000,"%+")) |
-table system_identifier
-database confidence score
-event_id sql_id start event_time
-dest_ip dest_port source_ip source_port</query>
+          <query>index="$index1$" sourcetype="$sourcetype1$" system_identifier=$machine$  cef_rulename=distinct_event 
+| eval start=if(start &gt; 1000000000000000, round(start/1000,0), start) 
+| eval event_time=if(start &gt; 1000000000000000,strftime(start/1000000,"%+"),strftime(start/1000,"%+")) 
+| table system_identifier database confidence score event_id sql_id start event_time dest_ip dest_port source_ip source_port</query>
           <earliest>$field1.earliest$</earliest>
           <latest>$field1.latest$</latest>
           <sampleRatio>1</sampleRatio>

@@ -1,7 +1,19 @@
 <nav search_view="search">
-  <!-- <view name="datasets" />
-  <view name="reports"  />
-  <view name="alerts"  /> -->
-  <view name="dashboards" default='true' />
-  <view name="search"  />
+
+  <collection label="DB CyberTech">
+    <a href="https://splunkbase.splunk.com/app/4065/">DB CyberTech Addon</a>
+    <divider />
+    <a href="https://app-db-cybertech.readthedocs.io/en/latest/" target="_blank">Documentation</a>
+    <a href="http://answers.splunk.com/ask/?appid=4042" target="_blank">Send Feedback</a>
+  </collection>
+
+  <collection label="Dashboards">
+    <view name="appsec_db" />
+    <view name="discovery_db" default='true' />
+    <view name="health_db" />
+    <view name="insiderthreat_db" />
+  </collection>
+
+  <view name="dashboards" />
+  <view name="search" />
 </nav>
