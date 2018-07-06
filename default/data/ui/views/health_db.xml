@@ -1,8 +1,8 @@
-<form>
+<form stylesheet="tooltip.css" script="tooltip.js">
   <label>Vital Counter Rates and Health per Machine</label>
   <row id="tooltip_row">
     <panel>
-      <html>
+    <html>
       <div id="tooltip_title">Vital Counter Rates and Health</div>
       <div id="tooltip_txt">
         <h4>Overview</h4>

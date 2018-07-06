@@ -1,8 +1,7 @@
-<form>
+<form stylesheet="tooltip.css" script="tooltip.js">
   <label>Insider Threat Events Dashboard</label>
   <row id="tooltip_row">
-    <panel>
-      <html>
+    <html>
       <div id="tooltip_title">Application Security Events</div>
       <div id="tooltip_txt">
         <h4>Overview</h4>
@@ -10,7 +9,6 @@
         <p style="float: right; text-weight: bold;"><a target="_blank" href="https://app-db-cybertech.readthedocs.io/en/latest/dashboards.html#application-security-events">More...</a></p>
       </div>
     </html>
-    </panel>
   </row>
   <!-- <row>
     <panel>
