@@ -14,6 +14,8 @@
     <view name="insiderthreat_db" />
   </collection>
 
-  <view name="dashboards" />
-  <view name="search" />
+  <collection label="System">
+    <view name="dashboards" />
+    <view name="search" />
+  </collection>
 </nav>
