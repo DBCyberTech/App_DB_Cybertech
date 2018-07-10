@@ -2,6 +2,11 @@
 Release Notes
 =============
 
+Version 2.1.1
+^^^^^^^^^^^^^
+
+Bug cleanup and moving docs to the App repository. 
+
 Version 2.0.0
 ^^^^^^^^^^^^^
 

@@ -17,5 +17,5 @@ There are 3 ways to install the app:
 
 Configure App-DB_CyberTech
 ---------------------------
-1. If using along with `DB Cybertech Add-on for Splunk <https://splunkbase.splunk.com/app/3587/>`_ , it is highly recommended to restart Splunk from ``Settings > Server Control`` page to make sure that the APP and TA assets are loaded.
+1. Restart Splunk from ``Settings > Server Control`` page to make sure that the App and Add-on assets are loaded.
 2. Although the dashboards can be further customized by user, no further app configuration is needed to start monitoring the events.  
