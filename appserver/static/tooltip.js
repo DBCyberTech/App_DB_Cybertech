@@ -3,7 +3,7 @@ require([
   'jquery',
   'splunkjs/mvc',
   'splunkjs/mvc/simplexml/ready!'
-], function (_, $, mvc) {
+], function (_, $, mvc, ignore) {
   var tooltipIcon = $('<i class="icon-info-circle tooltip_icon"></i>');
   tooltipIcon.appendTo('.dashboard-title');
   tooltipIcon.show();

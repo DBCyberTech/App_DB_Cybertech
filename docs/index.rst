@@ -9,7 +9,7 @@ Latest documentation is posted on http://app-db-cybertech.readthedocs.io
    :caption: DB CyberTech App 
    :maxdepth: 2
 
-   app/overview
+   app/app_overview
    app/installation_and_configuration
    app/dashboards
    app/release_notes
@@ -19,7 +19,7 @@ Latest documentation is posted on http://app-db-cybertech.readthedocs.io
    :maxdepth: 2
    :glob:
 
-   addOn/overview
+   addOn/add_on_overview
    addOn/installation_and_configuration
    addOn/user_guide
    addOn/release_notes
@@ -30,6 +30,6 @@ Latest documentation is posted on http://app-db-cybertech.readthedocs.io
    :glob:
 
    dbn_out
-   auditCodes
+   audit_codes
 
 
