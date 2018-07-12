@@ -81,10 +81,10 @@ Screenshot: Insider Threat Event Dashboard
 
 
 
-Vital Counter Rates and Health per Machine
+Health Counters
 ------------------------------------------
 
-The Vital Counter Rates and Health dashboard monitors the basic machine health information and the database protocols that are detected within the network that is being monitored by the DB-Security appliance.
+The Health Counters dashboard monitors the basic machine and network traffic health information of the DB-Security appliance.
 
 The dashboard particularly monitors the following unique syslog identifiers and fields:
 
@@ -93,18 +93,6 @@ The dashboard particularly monitors the following unique syslog identifiers and 
 - ``xcap_X12`` : *Packets dropped in the engine due to flow control or memory management pressure.  The dashboard graph shows the counter in rate/sec over time*.
 - ``xcap_X33`` : *Packets received by kernel. The dashboard graph shows the counter in rate/sec over time*.
 - ``xeng_X30`` : *Number of feed complete events (DB operation executions). The dashboard graph shows the counter in rate/sec over time*.
-- ``xpro_X22`` : *Extant Oracle connections. The dashboard graph shows the counter base value over time*.
-- ``xpro_X16`` : *Extant SQL server connections.  The dashboard graph shows the counter base value over time*.
-- ``xpro_X06`` : *Extant Sybase connections.  The dashboard graph shows the counter base value over time*.
-- ``xpro_X34`` : *Number of extant unidirectional connections.  The dashboard graph shows the counter base value over time*.
-- ``xpro_X08`` : *Extant Connections. The dashboard graph shows the counter base value over time*.
-- ``xpro_X18`` : *SQL Server records seen (requests and responses).  The dashboard graph shows the counter in rate/sec over time*.
-- ``xpro_X25`` : *Oracle request messages.  The dashboard graph shows the counter in rate/sec over time*.
-- ``xcap_X04`` : *Fraction of packets received and processed post BPF Filter.  The dashboard graph shows the percentage over time*.
-- ``xpro_X23`` : *Ratio of Oracle requests decoded vs all Oracle request. The dashboard graph shows the percentage over time*.
-- ``xpro_X24`` : *Ratio of Oracle requests decoded vs all Oracle request where no gap present. The dashboard graph shows the percentage over time*.
-- ``xpro_X19`` : *Ratio of good SQL server record decodes vs all protocols records handled.  The dashboard graph shows the percentage over time*.
-- ``xpro_X05`` : *Ratio of good Sybase protocol record decodes vs all protocols records handled.  The dashboard graph shows the percentage over time*.
 - ``os_loadavg_1`` : *5 minute CPU load average over time*
 - ``totalmem , freemem`` : *presented in the graph as the percentage memory used by the system*
 - ``disk_root_total , disk_root_avail``  : *presented in the graph as the percentage of root disk usage*
@@ -118,11 +106,49 @@ To use this dashboard, you have to provide the following input on the top of the
   4. Select Time Period:  select the time period that you would like to monitor.  For SOC operations, a 3 to 5 days span is more than enough.  For investigation purposes, a longer time span may be needed.
   5.  Choose span:  this is used to generate the graphs, the smaller the span, the longer it takes to load the graph. If you would like to view 1 month or greater time period, choose a span of 1 hour or greater to load the graphs faster.
 
-Screenshot: Vital Counters and Health Dashboard
+Screenshot: Health Counters Dashboard
 
   .. image:: images/5.png
      :height: 829px
      :width: 1419px
      :scale: 40%
      :alt: Vital Counters and Health Dashboard
+     :align: left
+
+
+Database Protocols Monitoring
+------------------------------------------
+
+The Database Protocols Monitoring dashboard monitors database protocols that are detected within the network that is being monitored by the DB-Security appliance.
+The dashboard particularly monitors the following unique syslog identifiers and fields:
+
+- ``xpro_X22`` : *Extant Oracle connections. The dashboard graph shows the counter base value over time*.
+- ``xpro_X16`` : *Extant SQL server connections.  The dashboard graph shows the counter base value over time*.
+- ``xpro_X06`` : *Extant Sybase connections.  The dashboard graph shows the counter base value over time*.
+- ``xpro_X34`` : *Number of extant unidirectional connections.  The dashboard graph shows the counter base value over time*.
+- ``xpro_X08`` : *Extant Connections. The dashboard graph shows the counter base value over time*.
+- ``xpro_X18`` : *SQL Server records seen (requests and responses).  The dashboard graph shows the counter in rate/sec over time*.
+- ``xpro_X25`` : *Oracle request messages.  The dashboard graph shows the counter in rate/sec over time*.
+- ``xcap_X04`` : *Fraction of packets received and processed post BPF Filter.  The dashboard graph shows the percentage over time*.
+- ``xpro_X23`` : *Ratio of Oracle requests decoded vs all Oracle request. The dashboard graph shows the percentage over time*.
+- ``xpro_X24`` : *Ratio of Oracle requests decoded vs all Oracle request where no gap present. The dashboard graph shows the percentage over time*.
+- ``xpro_X19`` : *Ratio of good SQL server record decodes vs all protocols records handled.  The dashboard graph shows the percentage over time*.
+- ``xpro_X05`` : *Ratio of good Sybase protocol record decodes vs all protocols records handled.  The dashboard graph shows the percentage over time*.
+- ``xpro_X41`` : *DB2 parses without dialect being set.  The dashboard graph shows the counter in rate/sec over time*.
+- ``xpro_X46`` : *DB2 queries opened (executed).  The dashboard graph shows the counter base value over time*.
+
+To use this dashboard, you have to provide the following input on the top of the dashboard:
+   1. Select Index:  select the proper index where the DB-Security event logs are being collected.
+   2. Select Sourcetype: selecting the proper sourcetype will help in the efficiency fo the dashboard.
+   3. Select Machine:  if your network have multiple DB-Security appliances, then this input will search for the past 7 days for DB-Security machines that have events and list it here in the dropdown.  Select the machine that you want to monitor.
+   4. Select Time Period:  select the time period that you would like to monitor.  For SOC operations, a 3 to 5 days span is more than enough.  For investigation purposes, a longer time span may be needed.
+   5. Choose span:  this is used to generate the graphs, the smaller the span, the longer it takes to load the graph. If you would like to view 1 month or greater time period, choose a span of 1 hour or greater to load the graphs faster.
+
+Screenshot: Health Counters Dashboard
+
+  .. image:: images/6.png
+     :height: 829px
+     :width: 1419px
+     :scale: 40%
+     :alt: Database Protocols Monitoring
      :align: left

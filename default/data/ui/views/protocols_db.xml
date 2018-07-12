@@ -1,5 +1,17 @@
 <form stylesheet="tooltip.css" script="tooltip.js">
   <label>[DBC] Database Protocols Monitoring</label>
+  <row id="tooltip_row">
+    <panel>
+      <html>
+      <div id="tooltip_title">Database Protocols Monitoring</div>
+      <div id="tooltip_txt">
+        <h4>Overview</h4>
+        <p>The Database Protocols Monitoring dashboard monitors database protocols that are detected within the network that is being monitored by the DB-Security appliance.</p>
+        <p style="float: right; text-weight: bold;"><a target="_blank" href="https://app-db-cybertech.readthedocs.io/en/latest/dashboards.html#database-protocols-monitoring">More...</a></p>
+      </div>
+    </html>
+    </panel>
+  </row>
   <description>This dashboard monitors the database protocols counters from the DBC-Security appliance.</description>
   <fieldset submitButton="true">
     <input type="dropdown" token="index1">

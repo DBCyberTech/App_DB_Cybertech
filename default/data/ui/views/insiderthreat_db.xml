@@ -2,11 +2,11 @@
   <label>[DBC] Insider Threat Events Dashboard</label>
   <row id="tooltip_row">
     <html>
-      <div id="tooltip_title">Application Security Events</div>
+      <div id="tooltip_title">Insider Threat Events Dashboard</div>
       <div id="tooltip_txt">
         <h4>Overview</h4>
-        <p>The Application Security Events Dashboard monitors for events from databases in "protection mode." New  SQL statements events that contains probable application security (like SQL injection) will appear here.</p>
-        <p style="float: right; text-weight: bold;"><a target="_blank" href="https://app-db-cybertech.readthedocs.io/en/latest/dashboards.html#application-security-events">More...</a></p>
+        <p>The Insider Threat Events dashboard monitors the events for databse activities that are classified as isnider threat.</p>
+        <p style="float: right; text-weight: bold;"><a target="_blank" href="https://app-db-cybertech.readthedocs.io/en/latest/dashboards.html#insider-threat-events">More...</a></p>
       </div>
     </html>
   </row>
