@@ -1,5 +1,5 @@
 <form stylesheet="tooltip.css" script="tooltip.js">
-  <label>Insider Threat Events Dashboard</label>
+  <label>[DBC] Insider Threat Events Dashboard</label>
   <row id="tooltip_row">
     <html>
       <div id="tooltip_title">Application Security Events</div>
@@ -15,9 +15,9 @@
       <table>
         <title>Serial Numbers to Owners Table</title>
         <search>
-          <query>earliest=-2h cef_rulename=cnt   
-| lookup dbfw_owners cs1 OUTPUT owner as owner  
-| dedup owner sortby owner   
+          <query>earliest=-2h cef_rulename=cnt
+| lookup dbfw_owners cs1 OUTPUT owner as owner
+| dedup owner sortby owner
 | table cs1, owner, recef_prodversion,</query>
           <earliest>-4h@m</earliest>
           <latest>now</latest>

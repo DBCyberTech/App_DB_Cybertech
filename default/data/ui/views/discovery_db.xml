@@ -1,5 +1,5 @@
 <form stylesheet="tooltip.css" script="tooltip.js">
-  <label>Discovery Event Dashboard Per Machine</label>
+  <label>[DBC] Discovery Event Dashboard</label>
   <row id="tooltip_row">
     <panel>
       <html>
