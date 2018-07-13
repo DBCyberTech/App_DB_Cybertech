@@ -1,6 +1,6 @@
 
 # Variables
-NAME=App_DB_CyberTech
+NAME=App_DB_Cybertech
 
 TARGET_ARCHIVE_DIR?=..
 TARGET_WORKING_DIR?=working
