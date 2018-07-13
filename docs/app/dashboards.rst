@@ -24,7 +24,7 @@ Screenshot: Discovery Event Dashboard
        :width: 1418px
        :scale: 40%
        :alt: Discovery Event Dashboard
-       :align: left
+       :align: center
 
 
 
@@ -48,7 +48,7 @@ Screenshot: Application Security Dashboard
       :width: 1424px
       :scale: 40%
       :alt: Application Security Dashboard
-      :align: left
+      :align: center
 
 Insider Threat Events
 ---------------------
@@ -77,7 +77,7 @@ Screenshot: Insider Threat Event Dashboard
      :width: 1423px
      :scale: 40%
      :alt: Insider Threat Event Dashboard
-     :align: left
+     :align: center
 
 
 
@@ -114,7 +114,7 @@ Screenshot: Health Counters Dashboard
      :width: 1419px
      :scale: 40%
      :alt: Vital Counters and Health Dashboard
-     :align: left
+     :align: center
 
 
 Database Protocols Monitoring
@@ -152,4 +152,4 @@ Screenshot: Health Counters Dashboard
      :width: 1419px
      :scale: 40%
      :alt: Database Protocols Monitoring
-     :align: left
+     :align: center
