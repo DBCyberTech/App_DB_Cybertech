@@ -7,7 +7,7 @@
       <div id="tooltip_txt">
         <h4>Overview</h4>
         <p>The Application Security Events Dashboard monitors for events from databases in "protection mode." New  SQL statements events that contains probable application security (like SQL injection) will appear here.</p>
-        <p style="float: right; text-weight: bold;"><a target="_blank" href="https://app-db-cybertech.readthedocs.io/en/latest/dashboards.html#application-security-events">More...</a></p>
+        <p style="float: right; text-weight: bold;"><a target="_blank" href="https://app-db-cybertech.readthedocs.io/en/latest/app/dashboards.html#application-security-events">More...</a></p>
       </div>
     </html>
     </panel>

@@ -7,7 +7,7 @@
       <div id="tooltip_txt">
         <h4>Overview</h4>
         <p>The Database Protocols Monitoring dashboard monitors database protocols that are detected within the network that is being monitored by the DB-Security appliance.</p>
-        <p style="float: right; text-weight: bold;"><a target="_blank" href="https://app-db-cybertech.readthedocs.io/en/latest/dashboards.html#database-protocols-monitoring">More...</a></p>
+        <p style="float: right; text-weight: bold;"><a target="_blank" href="https://app-db-cybertech.readthedocs.io/en/latest/app/dashboards.html#database-protocols-monitoring">More...</a></p>
       </div>
     </html>
     </panel>
@@ -32,7 +32,7 @@
       <fieldForLabel>sourcetype</fieldForLabel>
       <fieldForValue>sourcetype</fieldForValue>
       <search>
-        <query>earliest=-7d index=* "dbn" | dedup sourcetype |sort  sourcetype</query>
+        <query>earliest=-4d index=* "dbn" | dedup sourcetype |sort  sourcetype</query>
         <earliest>-7d@h</earliest>
         <latest>now</latest>
       </search>
@@ -69,7 +69,7 @@
       <title>[$machine$] xpro_X22 base value (X22 = Extant Oracle connections)</title>
       <chart>
         <search>
-          <query>index=$index1$ sourcetype="$sourcetype1$" cs1="$machine$" AND "11|cnt"
+          <query>index=$index1$ sourcetype="$sourcetype1$" cs1="$machine$" AND cef_rulename=cnt
 | eval X22=replace(xpro_X22,",","")
 | timechart span=$span1$  max(X22)</query>
           <earliest>$time1.earliest$</earliest>
@@ -110,7 +110,7 @@
       <title>[$machine$] xpro_X16 base value (X16 = Extant SQL server connections)</title>
       <chart>
         <search>
-          <query>index=$index1$  sourcetype="$sourcetype1$" cs1="$machine$" AND "11|cnt"
+          <query>index=$index1$  sourcetype="$sourcetype1$" cs1="$machine$" AND cef_rulename=cnt
 | eval X16=replace(xpro_X16,",","")
 | timechart span=$span1$  max(X16)</query>
           <earliest>$time1.earliest$</earliest>
@@ -151,7 +151,7 @@
       <title>[$machine$] xpro_X06 base value (X06 = Extant Sybase connections)</title>
       <chart>
         <search>
-          <query>index=$index1$ sourcetype="$sourcetype1$" cs1="$machine$" AND "11|cnt"
+          <query>index=$index1$ sourcetype="$sourcetype1$" cs1="$machine$" AND cef_rulename=cnt
 | eval X06=replace(xpro_X06,",","")
 | timechart span=$span1$  max(X06)</query>
           <earliest>$time1.earliest$</earliest>
@@ -192,7 +192,7 @@
       <title>[$machine$] xpro_X34 base value (X34 = Number of extant unidirectional connections)</title>
       <chart>
         <search>
-          <query>index=$index1$ sourcetype="$sourcetype1$" cs1="$machine$" AND "11|cnt"
+          <query>index=$index1$ sourcetype="$sourcetype1$" cs1="$machine$" AND cef_rulename=cnt
 | eval X34=replace(xpro_X34,",","")
 | timechart span=$span1$  max(X34)</query>
           <earliest>$time1.earliest$</earliest>
@@ -233,7 +233,7 @@
       <title>[$machine$] xpro_X08 base value (X08 = Extant Connections)</title>
       <chart>
         <search>
-          <query>index=$index1$ sourcetype="$sourcetype1$" cs1="$machine$" AND "11|cnt"
+          <query>index=$index1$ sourcetype="$sourcetype1$" cs1="$machine$" AND cef_rulename=cnt
 | eval X08=replace(xpro_X08,",","")
 | timechart span=$span1$  max(X08)</query>
           <earliest>$time1.earliest$</earliest>
@@ -274,7 +274,7 @@
       <title>[$machine$] xpro_X18 Rate/Second over time (X18 = SQL Server records seen (requests and responses))</title>
       <chart>
         <search>
-          <query>index=$index1$  sourcetype="$sourcetype1$" cs1="$machine$" AND "11|cnt"
+          <query>index=$index1$  sourcetype="$sourcetype1$" cs1="$machine$" AND cef_rulename=cnt
 | eval X18=replace(xpro_X18,",","")
 | reverse | delta X18 as d_X18
 | timechart span=$span1$  per_second(d_X18)</query>
@@ -316,7 +316,7 @@
       <title>[$machine$] xpro_X25 Rate/Second (X25 = Oracle request messages)</title>
       <chart>
         <search>
-          <query>index=$index1$ sourcetype="$sourcetype1$" cs1="$machine$" AND "11|cnt"
+          <query>index=$index1$ sourcetype="$sourcetype1$" cs1="$machine$" AND cef_rulename=cnt
 | eval X25=replace(xpro_X25,",","")
 | reverse | delta X25 as d_X25
 | timechart span=$span1$  per_second(d_X25)</query>
@@ -358,7 +358,7 @@
       <title>[$machine$] xpro_X23 in %  (X23 = Ratio of Oracle requests decoded vs all Oracle request%)</title>
       <chart>
         <search>
-          <query>index=$index1$ sourcetype="$sourcetype1$" cs1="$machine$" AND "11|cnt|"
+          <query>index=$index1$ sourcetype="$sourcetype1$" cs1="$machine$" AND cef_rulename=cnt
 | eval X23=xpro_X23*100
 |   timechart span=$span1$ max(X23)</query>
           <earliest>$time1.earliest$</earliest>
@@ -375,7 +375,7 @@
       <title>[$machine$] xpro_X24 in %  (X24 = Ratio of Oracle requests decoded vs all Oracle request where no gap present %)</title>
       <chart>
         <search>
-          <query>index=$index1$ sourcetype="$sourcetype1$" cs1="$machine$" AND "11|cnt|"
+          <query>index=$index1$ sourcetype="$sourcetype1$" cs1="$machine$" AND cef_rulename=cnt
 | eval X24=xpro_X24*100
 |   timechart span=$span1$ max(X24)</query>
           <earliest>$time1.earliest$</earliest>
@@ -392,7 +392,7 @@
       <title>[$machine$] xpro_X19 in %  (X19 = Ratio of good SQL server record decodes vs all protocols records handled %)</title>
       <chart>
         <search>
-          <query>index=$index1$ sourcetype="$sourcetype1$" cs1="$machine$" AND "11|cnt|"
+          <query>index=$index1$ sourcetype="$sourcetype1$" cs1="$machine$" AND cef_rulename=cnt
 | eval X19=xpro_X19*100
 |   timechart span=$span1$ max(X19)</query>
           <earliest>$time1.earliest$</earliest>
@@ -409,7 +409,7 @@
       <title>[$machine$] xpro_X05 in %  (X05 = Ratio of good Sybase protocol record decodes vs all protocols records handled %)</title>
       <chart>
         <search>
-          <query>index=$index1$ sourcetype="$sourcetype1$" cs1="$machine$" AND "11|cnt|"
+          <query>index=$index1$ sourcetype="$sourcetype1$" cs1="$machine$" AND cef_rulename=cnt
 | eval X05=xpro_X05*100
 |   timechart span=$span1$ max(X05)</query>
           <earliest>$time1.earliest$</earliest>
@@ -426,7 +426,7 @@
       <title>[$machine$] xpro_X41 Rate/Second over time (X41= DB2 parses without dialect being set)</title>
       <chart>
         <search>
-          <query>index=$index1$  sourcetype="$sourcetype1$" cs1="$machine$" AND "11|cnt"
+          <query>index=$index1$  sourcetype="$sourcetype1$" cs1="$machine$" AND cef_rulename=cnt
 | eval X41=replace(xpro_X41,",","")
 | reverse | delta X41 as d_X41
 | timechart span=$span1$  per_second(d_X41)</query>
@@ -468,7 +468,7 @@
       <title>[$machine$] xpro_X46 base value (X46 = db2 queries opened (executed))</title>
       <chart>
         <search>
-          <query>index=$index1$ sourcetype="$sourcetype1$" cs1="$machine$" AND "11|cnt"
+          <query>index=$index1$ sourcetype="$sourcetype1$" cs1="$machine$" AND cef_rulename=cnt
 | eval X46=replace(xpro_X46,",","")
 | timechart span=$span1$  max(X46)</query>
           <earliest>$time1.earliest$</earliest>

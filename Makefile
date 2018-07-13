@@ -1,6 +1,6 @@
 
 # Variables
-NAME=App-DB_CyberTech
+NAME=App_DB_Cybertech
 
 TARGET_ARCHIVE_DIR?=..
 TARGET_WORKING_DIR?=working
@@ -33,4 +33,3 @@ buildbeta:
 bumpversion:
 	sed -i '' -E 's/build = .*/build = $(BUILD)/' default/app.conf
 	bumpversion --verbose --allow-dirty --current-version $(CURRENT_VERSION) $(BUMP) default/app.conf
-

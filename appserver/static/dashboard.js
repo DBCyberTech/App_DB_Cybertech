@@ -41,19 +41,19 @@ require([
       // Mark TA as checked this Session
       sessionStorage.checked_ta = 1;
       $.ajax({
-        url: '/en-US/splunkd/__raw/servicesNS/admin/App-DB_CyberTech/configs/conf-app/install',
+        url: '/en-US/splunkd/__raw/servicesNS/admin/App_DB_Cybertech/configs/conf-app/install',
         data: {
           output_mode: 'json'
         },
         type: 'GET',
         dataType: 'json'
       }).done(function (response) {
-        for (i = 0; i < response.entry.length; i += 1) {        
+        for (i = 0; i < response.entry.length; i += 1) {
           dependencyVersion = response.entry[i].content.ta_dependency_version;
         }
       });
       console.log("Pre Apps");
-      
+
       service.apps()
         .fetch(function (err, apps) {
           var title;
@@ -76,7 +76,7 @@ require([
             // Check the version to see if it matches dependency.
             looseVersion = dbcybertechTA._properties.version;
             console.log("Dependency Version:", dependencyVersion, "Loose Version", looseVersion);
-            
+
             if (dependencyVersion === undefined || looseVersion === undefined) {
               // Unable to get dependencyVersion for some reason.
               // Adding to session storage to not check the TA anymore.

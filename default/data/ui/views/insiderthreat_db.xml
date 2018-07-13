@@ -6,7 +6,7 @@
       <div id="tooltip_txt">
         <h4>Overview</h4>
         <p>The Insider Threat Events dashboard monitors the events for databse activities that are classified as isnider threat.</p>
-        <p style="float: right; text-weight: bold;"><a target="_blank" href="https://app-db-cybertech.readthedocs.io/en/latest/dashboards.html#insider-threat-events">More...</a></p>
+        <p style="float: right; text-weight: bold;"><a target="_blank" href="https://app-db-cybertech.readthedocs.io/en/latest/app/dashboards.html#insider-threat-events">More...</a></p>
       </div>
     </html>
   </row>
@@ -86,7 +86,7 @@
       <single>
         <title>Number of IT_Clustered_Flow Events</title>
         <search>
-          <query>index=$index1$  sourcetype="$sourcetype1$" system_identifier=$machine$ cef_ruleid=18 cef_rulename=it_clustered_flow
+          <query>index=$index1$  sourcetype="$sourcetype1$" system_identifier=$machine$ cef_rulename=it_clustered_flow
 | stats count as IT_Clustered_Flow</query>
           <earliest>$time1.earliest$</earliest>
           <latest>$time1.latest$</latest>
@@ -101,7 +101,7 @@
       <single>
         <title>Number of IT_Cluster_Activity Events</title>
         <search>
-          <query>index=$index1$  sourcetype="$sourcetype1$" system_identifier=$machine$ cef_ruleid=24 cef_rulename=it_cluster_activity
+          <query>index=$index1$  sourcetype="$sourcetype1$" system_identifier=$machine$ cef_rulename=it_cluster_activity
 | stats count as IT_Cluster_Activity</query>
           <earliest>$time1.earliest$</earliest>
           <latest>$time1.latest$</latest>
@@ -117,7 +117,7 @@
       <table>
         <title>[$machine$] IT Clustered Flow</title>
         <search>
-          <query>index=$index1$  sourcetype="$sourcetype1$" system_identifier=$machine$ AND cef_ruleid=18 cef_rulename=it_clustered_flow
+          <query>index=$index1$  sourcetype="$sourcetype1$" system_identifier=$machine$ AND cef_rulename=it_clustered_flow
 | table _time cluster_id risk flowId context_id user_name client_ip service_name listener_ip port access_id schema relation mode</query>
           <earliest>$time1.earliest$</earliest>
           <latest>$time1.latest$</latest>
@@ -152,7 +152,7 @@
       <table>
         <title>[$machine$] IT New Flow</title>
         <search>
-          <query>index=$index1$  sourcetype="$sourcetype1$" system_identifier=$machine$ AND cef_ruleid=29 cef_rulename=it_new_flow
+          <query>index=$index1$  sourcetype="$sourcetype1$" system_identifier=$machine$ AND cef_rulename=it_new_flow
 | table _time  flowId context_id user_name client_ip service_name listener_ip port access_id schema relation mode</query>
           <earliest>$time1.earliest$</earliest>
           <latest>$time1.latest$</latest>
@@ -168,7 +168,7 @@
       <table>
         <title>[$machine$] IT New Cluster ID</title>
         <search>
-          <query>index=$index1$  sourcetype="$sourcetype1$" system_identifier=$machine$ AND cef_ruleid=22 cef_rulename=it_new_cluster
+          <query>index=$index1$  sourcetype="$sourcetype1$" system_identifier=$machine$ AND cef_rulename=it_new_cluster
 | table _time clusterId itEventId</query>
           <earliest>$time1.earliest$</earliest>
           <latest>$time1.latest$</latest>
@@ -182,7 +182,7 @@
       <chart>
         <title>[$machine$]  Top 20 Cluster ID Count</title>
         <search>
-          <query>index=$index1$ sourcetype="$sourcetype1$" system_identifier=$machine$ AND cef_ruleid=18 cef_rulename=it_clustered_flow
+          <query>index=$index1$ sourcetype="$sourcetype1$" system_identifier=$machine$ AND cef_rulename=it_clustered_flow
 | top 10 cluster_id</query>
           <earliest>$time1.earliest$</earliest>
           <latest>$time1.latest$</latest>
@@ -200,7 +200,7 @@
       <table>
         <title>[$machine$] IT Cluster Activity</title>
         <search>
-          <query>index=$index1$  sourcetype="$sourcetype1$" system_identifier=$machine$ AND cef_ruleid=24 cef_rulename=it_cluster_activity
+          <query>index=$index1$  sourcetype="$sourcetype1$" system_identifier=$machine$ AND cef_rulename=it_cluster_activity
 | eval first_flow=strftime(flow_earliest/1000,"%Y/%m/%d %H:%M:%S")
 | eval last_activity=strftime(activity_latest/1000,"%Y/%m/%d %H:%M:%S")
 | table _time cluster_id risk_type flowId first_flow last_activity execs client_ip listener_ip port access_id dialect service_name relation mode</query>
@@ -218,7 +218,7 @@
       <table>
         <title>[$machine$] IT Policy Activity Events</title>
         <search>
-          <query>index=$index1$  sourcetype="$sourcetype1$" system_identifier=$machine$ AND cef_ruleid=26 cef_rulename=it_policy_activity
+          <query>index=$index1$  sourcetype="$sourcetype1$" system_identifier=$machine$ AND  cef_rulename=it_policy_activity
 | eval first_flow=strftime(flow_earliest/1000,"%Y/%m/%d %H:%M:%S")
 | eval last_activity=strftime(activity_latest/1000,"%Y/%m/%d %H:%M:%S")
 | table _time category_id category_name flowId first_flow last_activity execs context_id user_name client_ip service_name listener_ip port access_id service_name relation mode</query>
