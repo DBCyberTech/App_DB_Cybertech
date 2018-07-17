@@ -116,6 +116,14 @@ Screenshot: Health Counters Dashboard
      :alt: Vital Counters and Health Dashboard
      :align: center
 
+Screenshot: System Health
+
+  .. image:: images/5b.png
+    :height: 829px
+    :width: 1419px
+    :scale: 40%
+    :alt: System Health
+    :align: center
 
 Database Protocols Monitoring
 ------------------------------------------
@@ -145,7 +153,7 @@ To use this dashboard, you have to provide the following input on the top of the
    4. Select Time Period:  select the time period that you would like to monitor.  For SOC operations, a 3 to 5 days span is more than enough.  For investigation purposes, a longer time span may be needed.
    5. Choose span:  this is used to generate the graphs, the smaller the span, the longer it takes to load the graph. If you would like to view 1 month or greater time period, choose a span of 1 hour or greater to load the graphs faster.
 
-Screenshot: Health Counters Dashboard
+Screenshot: Database Protocols Monitoring
 
   .. image:: images/6.png
      :height: 829px
