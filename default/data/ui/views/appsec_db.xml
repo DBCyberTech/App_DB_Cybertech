@@ -65,7 +65,7 @@
           <query>index="$index1$" sourcetype="$sourcetype1$" system_identifier=$machine$  cef_rulename=distinct_event
 | eval start=if(start &gt; 1000000000000000, round(start/1000,0), start)
 | eval event_time=if(start &gt; 1000000000000000,strftime(start/1000000,"%+"),strftime(start/1000,"%+"))
-| table system_identifier database confidence score event_id sql_id start event_time dest_ip dest_port source_ip source_port</query>
+| table system_identifier destinationServiceName confidence score externalId id start event_time dest_ip dest_port src_ip src_port</query>
           <earliest>$field1.earliest$</earliest>
           <latest>$field1.latest$</latest>
           <sampleRatio>1</sampleRatio>
