@@ -1,0 +1,33 @@
+<setup>
+
+<block title="Enable the schedule for a search" endpoint="saved/searches" entity="Alert: DBC New Application Security Event">
+    <text>
+      Testing Config
+    </text>
+
+    <!-- The field "is_scheduled" maps to the enableSched setting in savedsearches.conf -->
+    <input field="is_scheduled">
+      <label>Enable Schedule for $name$</label>
+      <type>bool</type>
+    </input>
+	
+</block>
+
+
+<block title="Add new credentials" endpoint="storage/passwords" entity="_new">
+  <input field="KeyId">
+    <label>Key ID</label>
+    <type>text</type>
+  </input>
+
+  <input field="APIKey">
+    <label>API Key</label>
+    <type>password</type>
+  </input>
+
+  <input field="Password">
+     <label>Password</label>
+     <type>password</type>
+  </input>
+</block>
+</setup>
