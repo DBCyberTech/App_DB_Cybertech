@@ -1,16 +1,26 @@
 <setup>
 
-<block title="Enable the schedule for a search" endpoint="saved/searches" entity="Alert: DBC New Application Security Event">
+<block title="Configure the Alerts for DB CyberTech Events" endpoint="saved/searches" entity="*">
     <text>
-      Testing Config
+      This will disable/enable the email alerts for DB CyberTech events (a check will disable)
     </text>
 
-    <!-- The field "is_scheduled" maps to the enableSched setting in savedsearches.conf -->
-    <input field="is_scheduled">
-      <label>Enable Schedule for $name$</label>
+    <!-- The field "disabled" will determine if the alert is disabled or enabled -->
+    <input field="disabled">
+      <label>Disable Alerts for $name$</label>
       <type>bool</type>
     </input>
-	
+
+    <text>
+      Specifiy email recipients for the alerts.  Use commas for multiple email addresses
+    </text>
+
+<!-- The field "action.email.to" will be the email addresses to receive the alerts -->
+    <input field="action.email.to">
+      <label>$name$</label>
+      <type>text</type>
+    </input>
+
 </block>
 
 

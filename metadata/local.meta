@@ -1,0 +1,35 @@
+[app/install/is_configured]
+version = 7.1.2
+modtime = 1538606587.730271000
+
+[savedsearches/Alert%3A%20%20DBC%20Engine%20Restart]
+version = 7.1.2
+modtime = 1538606587.614747000
+
+[savedsearches/Alert%3A%20%20DBC%20New%20User%20Identified]
+version = 7.1.2
+modtime = 1538606587.631005000
+
+[savedsearches/Alert%3A%20DBC%20Insider%20Threat%20Cluster%20Flow%20Activity]
+version = 7.1.2
+modtime = 1538606587.643243000
+
+[savedsearches/Alert%3A%20DBC%20Insider%20Threat%20Policy%20Activity%20Triggered]
+version = 7.1.2
+modtime = 1538606587.654008000
+
+[savedsearches/Alert%3A%20DBC%20New%20Application%20Security%20Event]
+version = 7.1.2
+modtime = 1538606587.665107000
+
+[savedsearches/Alert%3A%20DBC%20New%20Database%20Host%20Identified]
+version = 7.1.2
+modtime = 1538606587.675671000
+
+[savedsearches/Alert%3A%20DBC%20New%20Database%20Table%20Identified]
+version = 7.1.2
+modtime = 1538606587.687211000
+
+[savedsearches/DBC%20Alert%3A%20%20Low%20Disk%20Space]
+version = 7.1.2
+modtime = 1538606587.698048000
