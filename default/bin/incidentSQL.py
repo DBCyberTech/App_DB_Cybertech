@@ -3,7 +3,7 @@ import splunk.entity as entity
 
 # access the credentials in /servicesNS/nobody/app_name/admin/passwords
 def getCredentials(sessionKey):
-   appName = 'App-DB_CyberTech'
+   appName = 'App_DB_CyberTech'
    try:
       # list all credentials
       entities = entity.getEntities(['admin', 'passwords'], namespace=appName,
@@ -16,7 +16,7 @@ def getCredentials(sessionKey):
    for i, c in entities.items():
         return c['username'], c['clear_password']
 
-   raise Exception("No credentials have been found")  
+   raise Exception("No credentials have been found")
 
 def main():
         # read session key sent from splunkd
