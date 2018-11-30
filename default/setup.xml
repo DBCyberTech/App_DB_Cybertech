@@ -1,0 +1,43 @@
+<setup>
+
+<block title="Configure the Alerts for DB CyberTech Events" endpoint="saved/searches" entity="*">
+    <text>
+      This will disable/enable the email alerts for DB CyberTech events (a check will disable)
+    </text>
+
+    <!-- The field "disabled" will determine if the alert is disabled or enabled -->
+    <input field="disabled">
+      <label>Disable Alerts for $name$</label>
+      <type>bool</type>
+    </input>
+
+    <text>
+      Specifiy email recipients for the alerts.  Use commas for multiple email addresses
+    </text>
+
+<!-- The field "action.email.to" will be the email addresses to receive the alerts -->
+    <input field="action.email.to">
+      <label>$name$</label>
+      <type>text</type>
+    </input>
+
+</block>
+
+<!--
+<block title="Add new credentials" endpoint="storage/passwords" entity="_new">
+  <input field="KeyId">
+    <label>Key ID</label>
+    <type>text</type>
+  </input>
+
+  <input field="APIKey">
+    <label>API Key</label>
+    <type>password</type>
+  </input>
+
+  <input field="Password">
+     <label>Password</label>
+     <type>password</type>
+  </input>
+</block> -->
+</setup>

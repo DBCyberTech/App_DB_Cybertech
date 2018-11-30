@@ -221,7 +221,7 @@
           <query>index=$index1$  sourcetype="$sourcetype1$" system_identifier=$machine$ AND  cef_rulename=it_policy_activity
 | eval first_flow=strftime(flow_earliest/1000,"%Y/%m/%d %H:%M:%S")
 | eval last_activity=strftime(activity_latest/1000,"%Y/%m/%d %H:%M:%S")
-| table _time category_id category_name flowId first_flow last_activity execs context_id user_name client_ip service_name listener_ip port access_id service_name relation mode</query>
+| table _time category_id category_name annotation flowId first_flow last_activity execs context_id user_name client_ip service_name listener_ip port access_id service_name relation mode</query>
           <earliest>$time1.earliest$</earliest>
           <latest>$time1.latest$</latest>
           <refresh>10m</refresh>
