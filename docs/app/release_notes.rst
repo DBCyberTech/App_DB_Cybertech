@@ -2,6 +2,12 @@
 Release Notes
 =============
 
+Version 2.0.2
+^^^^^^^^^^^^^
+
+- Added new Alerts for the the DB CyberTech events
+- Added an initial configuration page for the DB CyberTech Alerts
+
 Version 2.0.1
 ^^^^^^^^^^^^^
 
