@@ -1,5 +1,6 @@
-<form stylesheet="tooltip.css" script="tooltip.js">
+<form stylesheet="tooltip.css" script="tooltip.js" theme="dark">
   <label>[DBC] Database Protocols Monitoring</label>
+  <description>This dashboard monitors the database protocols counters from the DBC-Security appliance.</description>
   <row id="tooltip_row">
     <panel>
       <html>
@@ -7,12 +8,13 @@
       <div id="tooltip_txt">
         <h4>Overview</h4>
         <p>The Database Protocols Monitoring dashboard monitors database protocols that are detected within the network that is being monitored by the DB-Security appliance.</p>
-        <p style="float: right; text-weight: bold;"><a target="_blank" href="https://app-db-cybertech.readthedocs.io/en/latest/app/dashboards.html#database-protocols-monitoring">More...</a></p>
+        <p style="float: right; text-weight: bold;">
+            <a target="_blank" href="https://app-db-cybertech.readthedocs.io/en/latest/app/dashboards.html#database-protocols-monitoring">More...</a>
+          </p>
       </div>
     </html>
     </panel>
-  </row>
-  <description>This dashboard monitors the database protocols counters from the DBC-Security appliance.</description>
+  </row>  
   <fieldset submitButton="true">
     <input type="dropdown" token="index1">
       <label>Select Index</label>
@@ -26,26 +28,26 @@
     </input>
     <input type="dropdown" token="sourcetype1">
       <label>Select Sourcetype</label>
-      <choice value="*">ALL</choice>
-      <choice value="dbn*">dbn*</choice>
-      <default>*</default>
       <fieldForLabel>sourcetype</fieldForLabel>
       <fieldForValue>sourcetype</fieldForValue>
       <search>
-        <query>earliest=-4d index=* "dbn" | dedup sourcetype |sort  sourcetype</query>
+        <query>earliest=-3d index=* "dbn" | dedup sourcetype |sort  sourcetype</query>
         <earliest>-7d@h</earliest>
         <latest>now</latest>
       </search>
+      <choice value="*">ALL</choice>
+      <choice value="dbn*">dbn*</choice>
     </input>
     <input type="dropdown" token="machine" searchWhenChanged="false">
       <label>Select Machine</label>
       <search>
-        <query>earliest=-7d (index=*) "dbfw*" AND system_identifier=* | fields system_identifier | top system_identifier limit=20 | SORT system_identifier</query>
+        <query>earliest=-10d (index=*) "dbfw*" AND system_identifier=* | fields system_identifier | top system_identifier limit=20 | SORT system_identifier</query>
         <earliest>-7d@d</earliest>
         <latest>now</latest>
       </search>
       <fieldForLabel>system_identifier</fieldForLabel>
       <fieldForValue>system_identifier</fieldForValue>
+      <choice value="*">ALL</choice>
     </input>
     <input type="time" token="time1" searchWhenChanged="false">
       <label>Select Time Period</label>
@@ -71,7 +73,7 @@
         <search>
           <query>index=$index1$ sourcetype="$sourcetype1$" cs1="$machine$" AND cef_rulename=cnt
 | eval X22=replace(xpro_X22,",","")
-| timechart span=$span1$  max(X22)</query>
+| timechart span=$span1$  max(X22) by system_identifier</query>
           <earliest>$time1.earliest$</earliest>
           <latest>$time1.latest$</latest>
           <sampleRatio>1</sampleRatio>
@@ -102,6 +104,7 @@
         <option name="charting.layout.splitSeries.allowIndependentYRanges">0</option>
         <option name="charting.legend.labelStyle.overflowMode">ellipsisMiddle</option>
         <option name="charting.legend.placement">right</option>
+        <option name="refresh.display">progressbar</option>
       </chart>
     </panel>
   </row>
@@ -112,7 +115,7 @@
         <search>
           <query>index=$index1$  sourcetype="$sourcetype1$" cs1="$machine$" AND cef_rulename=cnt
 | eval X16=replace(xpro_X16,",","")
-| timechart span=$span1$  max(X16)</query>
+| timechart span=$span1$  max(X16) by system_identifier</query>
           <earliest>$time1.earliest$</earliest>
           <latest>$time1.latest$</latest>
           <sampleRatio>1</sampleRatio>
@@ -143,6 +146,7 @@
         <option name="charting.layout.splitSeries.allowIndependentYRanges">0</option>
         <option name="charting.legend.labelStyle.overflowMode">ellipsisMiddle</option>
         <option name="charting.legend.placement">right</option>
+        <option name="refresh.display">progressbar</option>
       </chart>
     </panel>
   </row>
@@ -153,7 +157,7 @@
         <search>
           <query>index=$index1$ sourcetype="$sourcetype1$" cs1="$machine$" AND cef_rulename=cnt
 | eval X06=replace(xpro_X06,",","")
-| timechart span=$span1$  max(X06)</query>
+| timechart span=$span1$  max(X06) by system_identifier</query>
           <earliest>$time1.earliest$</earliest>
           <latest>$time1.latest$</latest>
           <sampleRatio>1</sampleRatio>
@@ -184,6 +188,7 @@
         <option name="charting.layout.splitSeries.allowIndependentYRanges">0</option>
         <option name="charting.legend.labelStyle.overflowMode">ellipsisMiddle</option>
         <option name="charting.legend.placement">right</option>
+        <option name="refresh.display">progressbar</option>
       </chart>
     </panel>
   </row>
@@ -194,7 +199,7 @@
         <search>
           <query>index=$index1$ sourcetype="$sourcetype1$" cs1="$machine$" AND cef_rulename=cnt
 | eval X34=replace(xpro_X34,",","")
-| timechart span=$span1$  max(X34)</query>
+| timechart span=$span1$  max(X34) by system_identifier</query>
           <earliest>$time1.earliest$</earliest>
           <latest>$time1.latest$</latest>
           <sampleRatio>1</sampleRatio>
@@ -225,6 +230,7 @@
         <option name="charting.layout.splitSeries.allowIndependentYRanges">0</option>
         <option name="charting.legend.labelStyle.overflowMode">ellipsisMiddle</option>
         <option name="charting.legend.placement">right</option>
+        <option name="refresh.display">progressbar</option>
       </chart>
     </panel>
   </row>
@@ -235,7 +241,7 @@
         <search>
           <query>index=$index1$ sourcetype="$sourcetype1$" cs1="$machine$" AND cef_rulename=cnt
 | eval X08=replace(xpro_X08,",","")
-| timechart span=$span1$  max(X08)</query>
+| timechart span=$span1$  max(X08) by system_identifier</query>
           <earliest>$time1.earliest$</earliest>
           <latest>$time1.latest$</latest>
           <sampleRatio>1</sampleRatio>
@@ -266,6 +272,7 @@
         <option name="charting.layout.splitSeries.allowIndependentYRanges">0</option>
         <option name="charting.legend.labelStyle.overflowMode">ellipsisMiddle</option>
         <option name="charting.legend.placement">right</option>
+        <option name="refresh.display">progressbar</option>
       </chart>
     </panel>
   </row>
@@ -277,7 +284,7 @@
           <query>index=$index1$  sourcetype="$sourcetype1$" cs1="$machine$" AND cef_rulename=cnt
 | eval X18=replace(xpro_X18,",","")
 | reverse | delta X18 as d_X18
-| timechart span=$span1$  per_second(d_X18)</query>
+| timechart span=$span1$  per_second(d_X18) by system_identifier</query>
           <earliest>$time1.earliest$</earliest>
           <latest>$time1.latest$</latest>
           <sampleRatio>1</sampleRatio>
@@ -308,6 +315,7 @@
         <option name="charting.layout.splitSeries.allowIndependentYRanges">0</option>
         <option name="charting.legend.labelStyle.overflowMode">ellipsisMiddle</option>
         <option name="charting.legend.placement">right</option>
+        <option name="refresh.display">progressbar</option>
       </chart>
     </panel>
   </row>
@@ -319,7 +327,7 @@
           <query>index=$index1$ sourcetype="$sourcetype1$" cs1="$machine$" AND cef_rulename=cnt
 | eval X25=replace(xpro_X25,",","")
 | reverse | delta X25 as d_X25
-| timechart span=$span1$  per_second(d_X25)</query>
+| timechart span=$span1$  per_second(d_X25) by system_identifier</query>
           <earliest>$time1.earliest$</earliest>
           <latest>$time1.latest$</latest>
           <sampleRatio>1</sampleRatio>
@@ -350,6 +358,7 @@
         <option name="charting.layout.splitSeries.allowIndependentYRanges">0</option>
         <option name="charting.legend.labelStyle.overflowMode">ellipsisMiddle</option>
         <option name="charting.legend.placement">right</option>
+        <option name="refresh.display">progressbar</option>
       </chart>
     </panel>
   </row>
@@ -360,13 +369,14 @@
         <search>
           <query>index=$index1$ sourcetype="$sourcetype1$" cs1="$machine$" AND cef_rulename=cnt
 | eval X23=xpro_X23*100
-|   timechart span=$span1$ max(X23)</query>
+|   timechart span=$span1$ max(X23) by system_identifier</query>
           <earliest>$time1.earliest$</earliest>
           <latest>$time1.latest$</latest>
           <refresh>5m</refresh>
           <refreshType>delay</refreshType>
         </search>
         <option name="charting.chart">line</option>
+        <option name="refresh.display">progressbar</option>
       </chart>
     </panel>
   </row>
@@ -377,13 +387,14 @@
         <search>
           <query>index=$index1$ sourcetype="$sourcetype1$" cs1="$machine$" AND cef_rulename=cnt
 | eval X24=xpro_X24*100
-|   timechart span=$span1$ max(X24)</query>
+|   timechart span=$span1$ max(X24) by system_identifier</query>
           <earliest>$time1.earliest$</earliest>
           <latest>$time1.latest$</latest>
           <refresh>5m</refresh>
           <refreshType>delay</refreshType>
         </search>
         <option name="charting.chart">line</option>
+        <option name="refresh.display">progressbar</option>
       </chart>
     </panel>
   </row>
@@ -394,13 +405,14 @@
         <search>
           <query>index=$index1$ sourcetype="$sourcetype1$" cs1="$machine$" AND cef_rulename=cnt
 | eval X19=xpro_X19*100
-|   timechart span=$span1$ max(X19)</query>
+|   timechart span=$span1$ max(X19) by system_identifier</query>
           <earliest>$time1.earliest$</earliest>
           <latest>$time1.latest$</latest>
           <refresh>5m</refresh>
           <refreshType>delay</refreshType>
         </search>
         <option name="charting.chart">line</option>
+        <option name="refresh.display">progressbar</option>
       </chart>
     </panel>
   </row>
@@ -411,13 +423,14 @@
         <search>
           <query>index=$index1$ sourcetype="$sourcetype1$" cs1="$machine$" AND cef_rulename=cnt
 | eval X05=xpro_X05*100
-|   timechart span=$span1$ max(X05)</query>
+|   timechart span=$span1$ max(X05) by system_identifier</query>
           <earliest>$time1.earliest$</earliest>
           <latest>$time1.latest$</latest>
           <refresh>5m</refresh>
           <refreshType>delay</refreshType>
         </search>
         <option name="charting.chart">line</option>
+        <option name="refresh.display">progressbar</option>
       </chart>
     </panel>
   </row>
@@ -429,7 +442,7 @@
           <query>index=$index1$  sourcetype="$sourcetype1$" cs1="$machine$" AND cef_rulename=cnt
 | eval X41=replace(xpro_X41,",","")
 | reverse | delta X41 as d_X41
-| timechart span=$span1$  per_second(d_X41)</query>
+| timechart span=$span1$  per_second(d_X41) by system_identifier</query>
           <earliest>$time1.earliest$</earliest>
           <latest>$time1.latest$</latest>
           <sampleRatio>1</sampleRatio>
@@ -460,6 +473,7 @@
         <option name="charting.layout.splitSeries.allowIndependentYRanges">0</option>
         <option name="charting.legend.labelStyle.overflowMode">ellipsisMiddle</option>
         <option name="charting.legend.placement">right</option>
+        <option name="refresh.display">progressbar</option>
       </chart>
     </panel>
   </row>
@@ -470,7 +484,7 @@
         <search>
           <query>index=$index1$ sourcetype="$sourcetype1$" cs1="$machine$" AND cef_rulename=cnt
 | eval X46=replace(xpro_X46,",","")
-| timechart span=$span1$  max(X46)</query>
+| timechart span=$span1$  max(X46) by system_identifier</query>
           <earliest>$time1.earliest$</earliest>
           <latest>$time1.latest$</latest>
           <sampleRatio>1</sampleRatio>
@@ -501,6 +515,7 @@
         <option name="charting.layout.splitSeries.allowIndependentYRanges">0</option>
         <option name="charting.legend.labelStyle.overflowMode">ellipsisMiddle</option>
         <option name="charting.legend.placement">right</option>
+        <option name="refresh.display">progressbar</option>
       </chart>
     </panel>
   </row>

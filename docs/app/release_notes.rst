@@ -2,6 +2,12 @@
 Release Notes
 =============
 
+Version 2.0.3
+^^^^^^^^^^^^^
+
+- Minor edits for Splunk best practice
+
+
 Version 2.0.2
 ^^^^^^^^^^^^^
 

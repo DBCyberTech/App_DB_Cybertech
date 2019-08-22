@@ -1,4 +1,4 @@
-<form stylesheet="tooltip.css" script="tooltip.js">
+<form stylesheet="tooltip.css" script="tooltip.js" theme="dark">
   <label>[DBC] Discovery Event Dashboard</label>
   <row id="tooltip_row">
     <panel>
@@ -15,8 +15,11 @@
           <li>New Host Identified</li>
           <li>New Users Identified</li>
         </ul>
-        <p><b>Note:</b> Since the syslog events from the DB-Security appliance are sent every 5 to 10 minutes interval, the dashboard panels have a default refresh of 10 minutes.</p>
-        <p style="float: right; text-weight: bold;"><a target="_blank" href="https://app-db-cybertech.readthedocs.io/en/latest/app/dashboards.html#discovery-event-dashboard">More...</a></p>
+        <p>
+            <b>Note:</b> Since the syslog events from the DB-Security appliance are sent every 5 to 10 minutes interval, the dashboard panels have a default refresh of 10 minutes.</p>
+        <p style="float: right; text-weight: bold;">
+            <a target="_blank" href="https://app-db-cybertech.readthedocs.io/en/latest/app/dashboards.html#discovery-event-dashboard">More...</a>
+          </p>
       </div>
     </html>
     </panel>
@@ -54,6 +57,7 @@ fields system_identifier | top system_identifier limit=50 | SORT system_identifi
       </search>
       <fieldForLabel>system_identifier</fieldForLabel>
       <fieldForValue>system_identifier</fieldForValue>
+      <choice value="*">ALL</choice>
     </input>
     <input type="time" token="time1" searchWhenChanged="false">
       <label>Select Time Period</label>
@@ -133,7 +137,7 @@ fields system_identifier | top system_identifier limit=50 | SORT system_identifi
       <table>
         <title>[$machine$] New Database Service Identified Table</title>
         <search>
-          <query>index=$index1$ sourcetype="$sourcetype1$" system_identifier=$machine$ cef_rulename=mds_new_service | table _time system_identifier service_name service_name_type dialect</query>
+          <query>index=$index1$ sourcetype="$sourcetype1$" system_identifier=$machine$ cef_rulename=mds_new_service | table system_identifier  _time system_identifier service_name service_name_type dialect</query>
           <earliest>$time1.earliest$</earliest>
           <latest>$time1.latest$</latest>
           <sampleRatio>1</sampleRatio>
@@ -144,16 +148,21 @@ fields system_identifier | top system_identifier limit=50 | SORT system_identifi
         <option name="dataOverlayMode">none</option>
         <option name="drilldown">cell</option>
         <option name="percentagesRow">false</option>
+        <option name="refresh.display">progressbar</option>
         <option name="rowNumbers">true</option>
         <option name="totalsRow">false</option>
         <option name="wrap">true</option>
+        <format type="color" field="system_identifier">
+          <colorPalette type="sharedList"></colorPalette>
+          <scale type="sharedCategory"></scale>
+        </format>
       </table>
     </panel>
     <panel>
       <table>
         <title>[$machine$] New Conversation Identified</title>
         <search>
-          <query>index=$index1$ sourcetype="$sourcetype1$" system_identifier=$machine$ cef_rulename=tally_new_ipseity | table _time system_identifier client_addr server_addr server_port</query>
+          <query>index=$index1$ sourcetype="$sourcetype1$" system_identifier=$machine$ cef_rulename=tally_new_ipseity | table system_identifier _time client_addr server_addr server_port</query>
           <earliest>$time1.earliest$</earliest>
           <latest>$time1.latest$</latest>
           <sampleRatio>1</sampleRatio>
@@ -164,9 +173,14 @@ fields system_identifier | top system_identifier limit=50 | SORT system_identifi
         <option name="dataOverlayMode">none</option>
         <option name="drilldown">cell</option>
         <option name="percentagesRow">false</option>
+        <option name="refresh.display">progressbar</option>
         <option name="rowNumbers">true</option>
         <option name="totalsRow">false</option>
         <option name="wrap">true</option>
+        <format type="color" field="system_identifier">
+          <colorPalette type="sharedList"></colorPalette>
+          <scale type="sharedCategory"></scale>
+        </format>
       </table>
     </panel>
   </row>
@@ -175,7 +189,7 @@ fields system_identifier | top system_identifier limit=50 | SORT system_identifi
       <table>
         <title>[$machine$] New Host Identified</title>
         <search>
-          <query>index=$index1$ sourcetype="$sourcetype1$" system_identifier=$machine$ cef_rulename=mds_new_host | table _time system_identifier addr</query>
+          <query>index=$index1$ sourcetype="$sourcetype1$" system_identifier=$machine$ cef_rulename=mds_new_host | table  system_identifier _time addr</query>
           <earliest>$time1.earliest$</earliest>
           <latest>$time1.latest$</latest>
           <sampleRatio>1</sampleRatio>
@@ -186,16 +200,21 @@ fields system_identifier | top system_identifier limit=50 | SORT system_identifi
         <option name="dataOverlayMode">none</option>
         <option name="drilldown">cell</option>
         <option name="percentagesRow">false</option>
+        <option name="refresh.display">progressbar</option>
         <option name="rowNumbers">true</option>
         <option name="totalsRow">false</option>
         <option name="wrap">true</option>
+        <format type="color" field="system_identifier">
+          <colorPalette type="sharedList"></colorPalette>
+          <scale type="sharedCategory"></scale>
+        </format>
       </table>
     </panel>
     <panel>
       <table>
         <title>[$machine$] New Users Identified</title>
         <search>
-          <query>index=$index1$ sourcetype="$sourcetype1$" system_identifier=$machine$ cef_rulename=mds_new_user | table _time system_identifier user_name default_schema</query>
+          <query>index=$index1$ sourcetype="$sourcetype1$" system_identifier=$machine$ cef_rulename=mds_new_user | table  system_identifier _time user_name default_schema</query>
           <earliest>$time1.earliest$</earliest>
           <latest>$time1.latest$</latest>
           <sampleRatio>1</sampleRatio>
@@ -206,9 +225,14 @@ fields system_identifier | top system_identifier limit=50 | SORT system_identifi
         <option name="dataOverlayMode">none</option>
         <option name="drilldown">cell</option>
         <option name="percentagesRow">false</option>
+        <option name="refresh.display">progressbar</option>
         <option name="rowNumbers">true</option>
         <option name="totalsRow">false</option>
         <option name="wrap">true</option>
+        <format type="color" field="system_identifier">
+          <colorPalette type="sharedList"></colorPalette>
+          <scale type="sharedCategory"></scale>
+        </format>
       </table>
     </panel>
   </row>

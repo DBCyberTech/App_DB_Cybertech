@@ -1,4 +1,4 @@
-<form stylesheet="tooltip.css" script="tooltip.js">
+<form stylesheet="tooltip.css" script="tooltip.js" theme="dark">
   <label>[DBC] Application Security Events</label>
   <row id="tooltip_row">
     <panel>
@@ -7,7 +7,9 @@
       <div id="tooltip_txt">
         <h4>Overview</h4>
         <p>The Application Security Events Dashboard monitors for events from databases in "protection mode." New  SQL statements events that contains probable application security (like SQL injection) will appear here.</p>
-        <p style="float: right; text-weight: bold;"><a target="_blank" href="https://app-db-cybertech.readthedocs.io/en/latest/app/dashboards.html#application-security-events">More...</a></p>
+        <p style="float: right; text-weight: bold;">
+            <a target="_blank" href="https://app-db-cybertech.readthedocs.io/en/latest/app/dashboards.html#application-security-events">More...</a>
+          </p>
       </div>
     </html>
     </panel>
@@ -46,6 +48,7 @@
       <fieldForLabel>system_identifier</fieldForLabel>
       <fieldForValue>system_identifier</fieldForValue>
       <choice value="*">ALL</choice>
+      <choice value="DB63-QA-DH-A-0004">demo</choice>
       <default>*</default>
       <initialValue>*</initialValue>
     </input>

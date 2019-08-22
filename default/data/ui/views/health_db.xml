@@ -1,18 +1,21 @@
-<form stylesheet="tooltip.css" script="tooltip.js">
+<form stylesheet="tooltip.css" script="tooltip.js" theme="dark">
   <label>[DBC] Health Counters</label>
   <row id="tooltip_row">
-      <panel>
+    <panel>
       <html>
         <div id="tooltip_title">Health Counters Dashboard</div>
         <div id="tooltip_txt">
           <h4>Overview</h4>
           <p>The Health Counters dashboard monitors the basic machine and network traffic health information of the DB-Security appliance.</p>
-          <p><b>Note:</b> Since the syslog events from the DB-Security appliance are sent every 5 to 10 minutes interval, the dashboard panels have a default refresh of 10 minutes.</p>
-          <p style="float: right; text-weight: bold;"><a target="_blank" href="https://app-db-cybertech.readthedocs.io/en/latest/app/dashboards.html#health-counters">More...</a></p>
+          <p>
+            <b>Note:</b> Since the syslog events from the DB-Security appliance are sent every 5 to 10 minutes interval, the dashboard panels have a default refresh of 10 minutes.</p>
+          <p style="float: right; text-weight: bold;">
+            <a target="_blank" href="https://app-db-cybertech.readthedocs.io/en/latest/app/dashboards.html#health-counters">More...</a>
+          </p>
         </div>
       </html>
-      </panel>
-  </row>
+    </panel>
+  </row> 
   <fieldset submitButton="true">
     <input type="dropdown" token="index1">
       <label>Select Index</label>
@@ -40,12 +43,13 @@
     <input type="dropdown" token="machine" searchWhenChanged="false">
       <label>Select Machine</label>
       <search>
-        <query>earliest=-7d (index=*) "dbfw*" AND system_identifier=* | fields system_identifier | top system_identifier limit=20 | SORT system_identifier</query>
+        <query>earliest=-10d (index=*) "dbfw*" AND system_identifier=* | fields system_identifier | top system_identifier limit=20 | SORT system_identifier</query>
         <earliest>-7d@d</earliest>
         <latest>now</latest>
       </search>
       <fieldForLabel>system_identifier</fieldForLabel>
       <fieldForValue>system_identifier</fieldForValue>
+      <choice value="*">ALL</choice>
     </input>
     <input type="time" token="time1" searchWhenChanged="false">
       <label>Select Time Period</label>
@@ -72,7 +76,7 @@
           <query>index=$index1$ sourcetype="$sourcetype1$" cs1="$machine$" AND cef_rulename=cnt
 | eval X01=replace(xcap_X01,",","")
 | reverse | delta X01 as d_X01
-| timechart span=$span1$  per_second(d_X01)</query>
+| timechart span=$span1$  per_second(d_X01) by system_identifier</query>
           <earliest>$time1.earliest$</earliest>
           <latest>$time1.latest$</latest>
           <sampleRatio>1</sampleRatio>
@@ -103,6 +107,7 @@
         <option name="charting.layout.splitSeries.allowIndependentYRanges">0</option>
         <option name="charting.legend.labelStyle.overflowMode">ellipsisMiddle</option>
         <option name="charting.legend.placement">right</option>
+        <option name="refresh.display">progressbar</option>
       </chart>
     </panel>
   </row>
@@ -114,7 +119,7 @@
           <query>index=$index1$  sourcetype="$sourcetype1$" cs1="$machine$" AND cef_rulename=cnt
 | eval X13=replace(xcap_X13,",","")
 | reverse | delta X13 as d_X13
-| timechart span=$span1$  per_second(d_X13)</query>
+| timechart span=$span1$  per_second(d_X13) by system_identifier</query>
           <earliest>$time1.earliest$</earliest>
           <latest>$time1.latest$</latest>
           <sampleRatio>1</sampleRatio>
@@ -145,6 +150,7 @@
         <option name="charting.layout.splitSeries.allowIndependentYRanges">0</option>
         <option name="charting.legend.labelStyle.overflowMode">ellipsisMiddle</option>
         <option name="charting.legend.placement">right</option>
+        <option name="refresh.display">progressbar</option>
       </chart>
     </panel>
   </row>
@@ -156,7 +162,7 @@
           <query>index=$index1$ sourcetype="$sourcetype1$" cs1="$machine$" AND cef_rulename=cnt
 | eval X12=replace(xcap_X12,",","")
 | reverse | delta X12 as d_X12
-| timechart span=$span1$  per_second(d_X12)</query>
+| timechart span=$span1$  per_second(d_X12) by system_identifier</query>
           <earliest>$time1.earliest$</earliest>
           <latest>$time1.latest$</latest>
           <sampleRatio>1</sampleRatio>
@@ -187,6 +193,7 @@
         <option name="charting.layout.splitSeries.allowIndependentYRanges">0</option>
         <option name="charting.legend.labelStyle.overflowMode">ellipsisMiddle</option>
         <option name="charting.legend.placement">right</option>
+        <option name="refresh.display">progressbar</option>
       </chart>
     </panel>
   </row>
@@ -198,7 +205,7 @@
           <query>index=$index1$  sourcetype="$sourcetype1$" cs1="$machine$" AND cef_rulename=cnt
 | eval X33=replace(xcap_X33,",","")
 | reverse | delta X33 as d_X33
-| timechart span=$span1$  per_second(d_X33)</query>
+| timechart span=$span1$  per_second(d_X33) by system_identifier</query>
           <earliest>$time1.earliest$</earliest>
           <latest>$time1.latest$</latest>
           <sampleRatio>1</sampleRatio>
@@ -229,6 +236,7 @@
         <option name="charting.layout.splitSeries.allowIndependentYRanges">0</option>
         <option name="charting.legend.labelStyle.overflowMode">ellipsisMiddle</option>
         <option name="charting.legend.placement">right</option>
+        <option name="refresh.display">progressbar</option>
       </chart>
     </panel>
   </row>
@@ -240,7 +248,7 @@
           <query>index=$index1$  sourcetype="$sourcetype1$" cs1="$machine$" AND cef_rulename=cnt
 | eval X30=replace(xeng_X30,",","")
 | reverse | delta X30 as d_X30
-| timechart span=$span1$  per_second(d_X30)</query>
+| timechart span=$span1$  per_second(d_X30) by system_identifier</query>
           <earliest>$time1.earliest$</earliest>
           <latest>$time1.latest$</latest>
           <sampleRatio>1</sampleRatio>
@@ -271,6 +279,7 @@
         <option name="charting.layout.splitSeries.allowIndependentYRanges">0</option>
         <option name="charting.legend.labelStyle.overflowMode">ellipsisMiddle</option>
         <option name="charting.legend.placement">right</option>
+        <option name="refresh.display">progressbar</option>
       </chart>
     </panel>
   </row>
@@ -281,13 +290,14 @@
         <search>
           <query>index=$index1$ sourcetype="$sourcetype1$" cs1="$machine$" AND cef_rulename=cnt
 | eval X04=xcap_X04*100
-|   timechart span=$span1$ max(X04)</query>
+|   timechart span=$span1$ max(X04) by system_identifier</query>
           <earliest>$time1.earliest$</earliest>
           <latest>$time1.latest$</latest>
           <refresh>5m</refresh>
           <refreshType>delay</refreshType>
         </search>
         <option name="charting.chart">line</option>
+        <option name="refresh.display">progressbar</option>
       </chart>
     </panel>
   </row>
@@ -296,7 +306,7 @@
       <title>[$machine$] 5 Minutes CPU Load Average</title>
       <chart>
         <search>
-          <query>index=$index1$ sourcetype="$sourcetype1$" cs1="$machine$" AND cef_rulename=sys | rename os_loadavg_1 as 5min_cpu_load | timechart span=$span1$ max(5min_cpu_load)</query>
+          <query>index=$index1$ sourcetype="$sourcetype1$" cs1="$machine$" AND cef_rulename=sys | rename os_loadavg_1 as 5min_cpu_load | timechart span=$span1$ max(5min_cpu_load) by system_identifier</query>
           <earliest>$time1.earliest$</earliest>
           <latest>$time1.latest$</latest>
           <sampleRatio>1</sampleRatio>
@@ -326,6 +336,7 @@
         <option name="charting.layout.splitSeries.allowIndependentYRanges">0</option>
         <option name="charting.legend.labelStyle.overflowMode">ellipsisMiddle</option>
         <option name="charting.legend.placement">right</option>
+        <option name="refresh.display">progressbar</option>
       </chart>
     </panel>
   </row>
@@ -334,7 +345,7 @@
       <title>[$machine$] % Memory Used</title>
       <chart>
         <search>
-          <query>index=$index1$ sourcetype="$sourcetype1$" cs1="$machine$" AND cef_rulename=sys   | eval totalmem=tonumber(replace(os_totalmem,",","")) | eval freemem=tonumber(replace(os_freemem,",","")) | eval memUsed = ((totalmem-freemem)/totalmem)*100 | timechart span=$span1$ max(memUsed)</query>
+          <query>index=$index1$ sourcetype="$sourcetype1$" cs1="$machine$" AND cef_rulename=sys   | eval totalmem=tonumber(replace(os_totalmem,",","")) | eval freemem=tonumber(replace(os_freemem,",","")) | eval memUsed = ((totalmem-freemem)/totalmem)*100 | timechart span=$span1$ max(memUsed) by system_identifier</query>
           <earliest>$time1.earliest$</earliest>
           <latest>$time1.latest$</latest>
           <sampleRatio>1</sampleRatio>
@@ -364,6 +375,7 @@
         <option name="charting.layout.splitSeries.allowIndependentYRanges">0</option>
         <option name="charting.legend.labelStyle.overflowMode">ellipsisMiddle</option>
         <option name="charting.legend.placement">right</option>
+        <option name="refresh.display">progressbar</option>
       </chart>
     </panel>
   </row>
@@ -372,7 +384,7 @@
       <title>[$machine$] % Disk Usage for Root</title>
       <chart>
         <search>
-          <query>index=$index1$ sourcetype="$sourcetype1$" cs1="$machine$" AND cef_rulename=slowsys  | eval total_root=tonumber(replace(disk_root_total,",","")) | eval root_avail=tonumber(replace(disk_root_avail,",","")) | eval disk_used_root=((total_root-root_avail)/total_root)*100 | timechart span=$span1$ max(disk_used_root)</query>
+          <query>index=$index1$ sourcetype="$sourcetype1$" cs1="$machine$" AND cef_rulename=slowsys  | eval total_root=tonumber(replace(disk_root_total,",","")) | eval root_avail=tonumber(replace(disk_root_avail,",","")) | eval disk_used_root=((total_root-root_avail)/total_root)*100 | timechart span=$span1$ max(disk_used_root) by system_identifier</query>
           <earliest>$time1.earliest$</earliest>
           <latest>$time1.latest$</latest>
           <sampleRatio>1</sampleRatio>
@@ -402,6 +414,7 @@
         <option name="charting.layout.splitSeries.allowIndependentYRanges">0</option>
         <option name="charting.legend.labelStyle.overflowMode">ellipsisMiddle</option>
         <option name="charting.legend.placement">right</option>
+        <option name="refresh.display">progressbar</option>
       </chart>
     </panel>
   </row>
@@ -414,7 +427,7 @@
 | eval total_b=tonumber(replace(disk_b_total,",",""))
 | eval b_avail=tonumber(replace(disk_b_avail,",",""))
 | eval disk_used_b=((total_b-b_avail)/total_b)*100
-| timechart span=10m max(disk_used_b)</query>
+| timechart span=10m max(disk_used_b) by system_identifier</query>
           <earliest>$time1.earliest$</earliest>
           <latest>$time1.latest$</latest>
           <sampleRatio>1</sampleRatio>
@@ -444,6 +457,7 @@
         <option name="charting.layout.splitSeries.allowIndependentYRanges">0</option>
         <option name="charting.legend.labelStyle.overflowMode">ellipsisMiddle</option>
         <option name="charting.legend.placement">right</option>
+        <option name="refresh.display">progressbar</option>
       </chart>
     </panel>
   </row>
@@ -452,11 +466,12 @@
       <title>[$machine$] Engine Start Events</title>
       <table>
         <search>
-          <query>index=$index1$ sourcetype="$sourcetype1$"  "$machine$" AND cef_rulename=engine_start |  rename cs1 as mac_address, _time as restart_time |  eval restart_time = strftime(restart_time,"%Y-%m-%d %H:%M:%S") | SORT restart_time desc | table restart_time</query>
+          <query>index=$index1$ sourcetype="$sourcetype1$"  "$machine$" AND cef_rulename=engine_start |  rename cs1 as mac_address, _time as restart_time |  eval restart_time = strftime(restart_time,"%Y-%m-%d %H:%M:%S") | SORT restart_time desc | table system_identifier restart_time</query>
           <earliest>$time1.earliest$</earliest>
           <latest>$time1.latest$</latest>
         </search>
         <option name="drilldown">none</option>
+        <option name="refresh.display">progressbar</option>
       </table>
     </panel>
   </row>

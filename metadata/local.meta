@@ -1,47 +1,55 @@
 [savedsearches/Alert%3A%20%20DBC%20Engine%20Restart]
 version = 7.2.1
-modtime = 1547142584.984490000
+modtime = 1558379114.702269000
 
 [savedsearches/Alert%3A%20%20DBC%20New%20User%20Identified]
 version = 7.2.1
-modtime = 1547142585.021391000
+modtime = 1558379114.727216000
 
 [savedsearches/Alert%3A%20DBC%20Archive%20Failed%20or%20None]
 version = 7.2.1
-modtime = 1547142585.046743000
+modtime = 1558379114.752119000
 
 [savedsearches/Alert%3A%20DBC%20Insider%20Threat%20Cluster%20Flow%20Activity]
 version = 7.2.1
-modtime = 1547142585.071831000
+modtime = 1558379114.777163000
 
 [savedsearches/Alert%3A%20DBC%20Insider%20Threat%20Policy%20Activity%20Triggered]
 version = 7.2.1
-modtime = 1547142585.097446000
+modtime = 1558379114.802095000
 
 [savedsearches/Alert%3A%20DBC%20Low%20Disk%20Space]
 version = 7.2.1
-modtime = 1547142585.122854000
+modtime = 1558379114.827157000
 
 [savedsearches/Alert%3A%20DBC%20New%20Application%20Security%20Event]
 version = 7.2.1
-modtime = 1547142585.148488000
+modtime = 1558379114.852173000
 
 [savedsearches/Alert%3A%20DBC%20New%20Database%20Host%20Identified]
 version = 7.2.1
-modtime = 1547142585.174287000
+modtime = 1558379114.877093000
 
 [savedsearches/Alert%3A%20DBC%20New%20Database%20Table%20Identified]
 version = 7.2.1
-modtime = 1547142585.199841000
+modtime = 1558379114.902059000
 
 [savedsearches/Alert%3A%20DBC%20No%20Feed%20Critical]
 version = 7.2.1
-modtime = 1547142585.225228000
+modtime = 1558379114.927094000
 
 [app/install/is_configured]
 version = 7.2.1
-modtime = 1547142585.256816000
+modtime = 1558379114.957576000
 
 [app/install/install_source_checksum]
 version = 7.2.1
-modtime = 1557788697.650558000
+modtime = 1558029361.597148000
+
+[views/discovery_db]
+version = 7.2.1
+modtime = 1566339441.038953000
+
+[views/insiderthreat_db]
+version = 7.2.1
+modtime = 1566410167.669834000
